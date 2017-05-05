@@ -31,11 +31,11 @@ Bl.login.render = (function()
         var user = $('#input-username').val();
         var psw = $('#input-password').val();
 
-        //Obj.login.start(user,psw);	
+        //Bl.login.start(user,psw);	
     });
 
     $('#signin').click(function(){
-        //Obj.signin.render();
+        Bl.signin.render();
     });
     
     $('#btn-back').click(function(){

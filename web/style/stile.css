@@ -161,10 +161,7 @@ html,body, div[data-role ="page"]
 {
     text-align: center;
     margin-top:0px;
-}
-#text-user
-{
-    margin-top:30px;
+    margin-bottom:30px;
 }
 #text-email
 {
