@@ -1,0 +1,232 @@
+/* GENERAL PAGE */
+/*permettono di utilizzare la body-page a larghezza massima */
+html,body, div[data-role ="page"] 
+{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+ 
+.ui-content
+{
+   height: 100%;
+   width: 100%;
+   margin: 0px;
+   padding: 0px;
+   border-style: solid;
+   border-color: chartreuse;
+   border-width: 5px;
+}
+ 
+     
+
+#page
+{   /*il padding-top serve per tenere il bodyPage sotto la navbar */
+    padding-top: 76.875px !important;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: white;
+}
+
+/*HEADER*/
+.headerPage
+{
+    height:43px;  
+    line-height: 40px;
+    background-color: #33CC99 !important;
+}
+
+#bl-header-h1
+{
+    font-weight: bold;
+    margin: 0;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    text-shadow:-1px -1px  #BBBFBD;
+}
+
+#header-user
+{
+    float:left;
+    margin-left:10px;
+}
+
+#navbar
+{
+	
+}
+
+#menu
+{
+    top: 78px; 
+    float:right;
+    width:192px !important;
+    right:10px;
+}
+
+#body-page
+{
+    height: 100% !important;
+}
+
+/*end GENERAL PAGE*/
+
+
+/*  LOGIN PAGE  */
+
+#logo
+{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.info-txt-user
+{
+    margin-top:40px;
+}
+
+/*casella username */
+.input-user
+{
+    margin-top: 10px;
+}
+
+.info-txt-psw
+{
+    margin-top:10px;
+}
+/*casella password */
+.input-psw
+{
+    margin-top: 10px;
+}
+
+/*pulsante di login*/
+#btn-access
+{
+    margin-top: 50px;
+    width:100%;
+}
+
+/*Signin*/
+#signin
+{
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    float:right;
+    left:30px;
+
+}
+
+
+/*  SIGNIN PAGE  */
+#title-page-signin
+{
+    text-align: center;
+    margin-top:0px;
+}
+#text-user
+{
+    margin-top:30px;
+}
+#text-email
+{
+    margin-top:10px;
+}
+#text-psw
+{
+    margin-top:10px;
+}
+#text-psw-conf
+{
+    margin-top:10px;
+}
+#signin-btn
+{
+    margin-top: 20px;
+    float:right;
+}
+#signin-back
+{
+    float: left;
+    margin-top: 20px;
+}
+/*  MAIN PAGE   */
+
+/* HOME */
+#logout
+{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    left:0;
+
+}
+
+
+/* ATTIVITA */
+#title-attivita
+{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+.btn-obj
+{
+    background-color: #337ab7 !important;
+    border-radius: 0px !important;
+    color:white !important;
+    font-weight: bold !important;
+    text-shadow:-1px -1px  #BBBFBD !important;
+
+}
+
+.nothing
+{
+    color:#708090;
+    text-align: center;
+}
+.btn-round
+{
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    left:0px !important;
+}
+
+/* INSERISCI OBBIETTIVO */
+#title-new-obj
+{
+    text-align: center;
+    font-weight: bold;
+    padding-bottom:50px;
+}
+
+#description-obj
+{
+    padding-bottom:40px;
+    background-color: read;
+} 
+
+#add
+{
+    float: right;
+    margin-top: 30px;
+}
+
+#back
+{
+    float: left;
+    margin-top: 30px;
+}
+
+#bt
+{
+    float:right;
+}
