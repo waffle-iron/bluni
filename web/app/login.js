@@ -13,27 +13,34 @@ Bl.login.render = (function()
     $("#body-page").append('<div class="info-txt-psw"><p>Password</p></div>');
     $("#body-page").append('<div class="input-psw"> <input id="input-password" type="password" value="Password"></input></div>');
     $("#body-page").append('<a id="btn-access" class="btn btn-default">Login</a>');
+    
+    $("#body-page").append('<a id="btn-back" class="btn btn-default">Annulla</a>');
     //Signin
-    $("#body-page").append('<a href="#" id="signin">Iscriviti</a>')
+    $("#body-page").append('<a href="#" id="signin">Iscriviti</a>');
 
     $("#input-username").click(function(){
-            $(this).val('');
+        $(this).val('');
     });
 
     $("#input-password").click(function(){
-            $(this).val('');
+        $(this).val('');
     });
 
 
     $("#access").click(function(){
-            var user = $('#input-username').val();
-            var psw = $('#input-password').val();
+        var user = $('#input-username').val();
+        var psw = $('#input-password').val();
 
-            //Obj.login.start(user,psw);	
+        //Obj.login.start(user,psw);	
     });
 
     $('#signin').click(function(){
-            //Obj.signin.render();
+        //Obj.signin.render();
+    });
+    
+    $('#btn-back').click(function(){
+        //Obj.signin.render();
+        Bl.main.render();
     });
 
     $('#body-page').trigger("create");

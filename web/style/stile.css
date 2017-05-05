@@ -75,13 +75,21 @@ html,body, div[data-role ="page"]
 
 /*  MAIN PAGE  */
 
+#logo
+{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+}
+
 #btn-main-content
 {
     width: 200px;
     height: 200px;
 
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     margin-top: -100px;
     margin-left: -100px;
@@ -101,14 +109,6 @@ html,body, div[data-role ="page"]
 /*  END MAIN PAGE  */
 
 /*  LOGIN PAGE  */
-
-#logo
-{
-    margin-top: 40px;
-    text-align: center;
-    font-size: 60px;
-    font-weight: bold;
-}
 
 .info-txt-user
 {
@@ -143,10 +143,16 @@ html,body, div[data-role ="page"]
 {
     position: fixed;
     bottom: 20px;
-    width: 100%;
+    right:30px;
+    margin-bottom: 4px;
+}
+
+#btn-back
+{
+    position: fixed;
+    bottom: 20px;
     float:right;
     left:30px;
-
 }
 
 

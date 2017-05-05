@@ -3,9 +3,11 @@ Bl.main = {};
 Bl.main.render = (function()
 {
     //Regolazione dimensione pagina per farci stare la navbar
-    $('#page').css("cssText","padding-top: 76.875px !important;");
+    $('#page').css("cssText","padding-top: 40px !important;");
 
     $('#body-page').empty();
+
+    $("#body-page").append('<div id="logo">Blunì</div>');
     
     var html = '<div id="btn-main-content">';
         html+= '<div><a id="btn-cerca" class="btn btn-default">Cerca</a></div>';
