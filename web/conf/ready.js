@@ -5,11 +5,12 @@ $(document).ready(function(){
     //Controllo se c'è il cookie
     if(jQuery.cookie("bluni-cookie"))
     {
-            //Bl.configuration.start();
+        //Bl.configuration.start();
     }
     else
     {
-            //ritorno a pagina di login
-            Bl.login.render();
+        //ritorno a pagina di login
+        //Bl.login.render();
+        Bl.main.render();
     }
 });

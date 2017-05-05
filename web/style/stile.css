@@ -73,6 +73,32 @@ html,body, div[data-role ="page"]
 
 /*end GENERAL PAGE*/
 
+/*  MAIN PAGE  */
+
+#btn-main-content
+{
+    width: 200px;
+    height: 200px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+#btn-cerca
+{
+    margin-top:20px;
+    width: 100%;
+}
+
+#btn-vendi
+{
+    margin-top: 50px;
+    width: 100%;
+}
+/*  END MAIN PAGE  */
 
 /*  LOGIN PAGE  */
 
