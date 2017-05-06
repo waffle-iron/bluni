@@ -4,8 +4,7 @@ Bl.signin = {};
 Bl.signin.render = (function()
 {
     $("#body-page").empty();
-
-    $("#body-page").append('<h1 id="title-page-signin">Iscrizione</h4>');
+    $("#body-page").append('<h1 id="title-page-signin">Iscrizione</h1>');
 
     $("#body-page").append('<div id="text-email"> <label>eMail</label> \n\
                             <input type="email" id="signin-email" class="form-control" placeholder="Email"></input></div>');
@@ -48,6 +47,7 @@ Bl.signin.render = (function()
     });
 
     $("#body-page").trigger("create");
+    $("#header-page").trigger("create");
 });
 
 Bl.signin.controlloDati=(function(user,email,psw,pswConf)

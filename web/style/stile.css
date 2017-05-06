@@ -19,8 +19,6 @@ html,body, div[data-role ="page"]
    border-width: 5px;
 }
  
-     
-
 #page
 {   /*il padding-top serve per tenere il bodyPage sotto la navbar */
     padding-top: 76.875px !important;
@@ -29,12 +27,13 @@ html,body, div[data-role ="page"]
     background-color: white;
 }
 
+
 /*HEADER*/
 .headerPage
 {
     height:43px;  
     line-height: 40px;
-    background-color: #33CC99 !important;
+    background-color: #42a5f5 !important;
 }
 
 #bl-header-h1
@@ -43,19 +42,7 @@ html,body, div[data-role ="page"]
     margin: 0;
     width: 100%;
     color: white;
-    font-weight: bold;
     text-shadow:-1px -1px  #BBBFBD;
-}
-
-#header-user
-{
-    float:left;
-    margin-left:10px;
-}
-
-#navbar
-{
-	
 }
 
 #menu
@@ -81,6 +68,11 @@ html,body, div[data-role ="page"]
     text-align: center;
     font-size: 60px;
     font-weight: bold;
+    color:white;
+    text-shadow:-2px -2px 0px  #42a5f5, 
+                2px -2px 0px  #42a5f5, 
+                -2px 2px 0px  #42a5f5,
+                2px -2px 0px  #42a5f5;
 }
 
 #btn-main-content
@@ -97,13 +89,14 @@ html,body, div[data-role ="page"]
 
 #btn-cerca
 {
-    margin-top:20px;
+    padding: 20px;
     width: 100%;
 }
 
 #btn-vendi
 {
     margin-top: 50px;
+    padding: 20px;
     width: 100%;
 }
 /*  END MAIN PAGE  */
