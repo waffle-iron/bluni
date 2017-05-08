@@ -57,11 +57,10 @@ html,body, div[data-role ="page"]
 {
     height: 100% !important;
 }
-
 /*end GENERAL PAGE*/
 
-/*  MAIN PAGE  */
 
+/*  MAIN PAGE  */
 #logo
 {
     margin-top: 40px;
