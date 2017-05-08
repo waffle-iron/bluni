@@ -27,11 +27,11 @@ Bl.login.render = (function()
     });
 
 
-    $("#access").click(function(){
+    $("#btn-access").click(function(){
         var user = $('#input-username').val();
         var psw = $('#input-password').val();
 
-        //Bl.login.start(user,psw);	
+        Bl.login.start(user,psw);	
     });
 
     $('#signin').click(function(){
@@ -44,4 +44,39 @@ Bl.login.render = (function()
     });
 
     $('#body-page').trigger("create");
+});
+
+Bl.login.start=(function(user, psw)
+{
+    var pathParts = window.location.href.split("/");
+    var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
+    
+    var data = "user="+user+
+            "&psw="+psw;
+    
+    $.ajax({
+        type: "POST",
+        url: root+"/src/main/connect/login.php",
+        data: data,
+        dataType: "html",
+
+        success: function(msg)
+        {
+            if(msg==="1")
+            {
+                alert("login correttamente");
+                //Obj.start();
+            }	
+            else
+            {
+                alert("msg: credenziali non corrette");
+            }
+        },
+        error: function()
+        {
+            alert("no");
+            return false;
+        }
+    });
+    
 });

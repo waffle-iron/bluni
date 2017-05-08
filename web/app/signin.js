@@ -90,25 +90,6 @@ Bl.signin.controlData=(function(param)
     return true;
 });
 
-Bl.signin.test = (function()
-{
-   $.ajax({
-        type: "GET",
-        url: root+"/src/main/connect/db_connect.php",
-        dataType: "html",
-
-        success: function(msg)
-        {
-            alert(msg);
-        },
-        error: function()
-        {
-            alert("no");
-        }
-    });
-    
-});
-
 Bl.signin.user= (function(param)
 {
     var pathParts = window.location.href.split("/");
@@ -128,8 +109,6 @@ Bl.signin.user= (function(param)
 
         success: function(msg)
         {
-            alert(msg);
-            
             if(msg==="1")
             {
                 alert("Iscrizione eseguita correttamente");
