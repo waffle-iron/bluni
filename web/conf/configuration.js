@@ -5,6 +5,7 @@ Bl.configuration.start=(function()
 {
     if(Bl.configuration.getCookie("bluni-cookie"))
     {
+        $("#header-user").append(Bl.configuration.getCookie("bluni-cookie"));
         Bl.menu.render();
         Bl.vendi.render();
     }

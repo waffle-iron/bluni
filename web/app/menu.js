@@ -10,6 +10,9 @@ Bl.menu.render=(function()
     $("#bl-icon-menu").click(function(){
         $('#menu').toggle("slow");
     });
+    $("#bl-header-h1").click(function(){
+        $('#menu').toggle("slow");
+    });
     
     $("#body-page").click(function(){
         $('#menu').hide("slow");
