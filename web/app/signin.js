@@ -1,4 +1,6 @@
 
+/* global BlApp, Bl */
+
 Bl.signin = {};
 
 Bl.signin.render = (function()
@@ -38,18 +40,20 @@ Bl.signin.appendHtml = (function()
 {
     $("#body-page").append('<h1 id="title-page-signin">Iscrizione</h1>');
 
-    $("#body-page").append('<div id="text-username"> <label>Username</label> \n\
-                            <input type="text" id="signin-username" class="form-control" placeholder="Username"></input></div>');
+    $("#body-page").append('<label id="text-username"> Username</label>');
+    $("#body-page").append(BlApp.inputText.html("signin-username", "text", "Username"));
     
-    $("#body-page").append('<div id="text-email"> <label>eMail</label> \n\
-                            <input type="email" id="signin-email" class="form-control" placeholder="Email"></input></div>');
+    $("#body-page").append('<label id="text-email">eMail</label>');
+    $("#body-page").append(BlApp.inputText.html("signin-email", "email", "Email"));
     
-    $("#body-page").append('<div id="text-psw"> <p>Password</p> <input id="signin-psw" type="password" ></input></div>');
+    $("#body-page").append('<label id="text-psw">Password</label>');
+    $("#body-page").append(BlApp.inputText.html("signin-psw", "password", "Password"));
     
-    $("#body-page").append('<div id="text-psw-conf"> <p>Conferma Password</p> <input id="signin-psw-conf" type="password" ></input></div>');
+    $("#body-page").append('<label id="text-psw-conf">Conferma Password</label>');
+    $("#body-page").append(BlApp.inputText.html("signin-psw-conf", "password", "Password"));
     
-    $("#body-page").append('<div id="text-phone"> <label>Numero di Telefono</label> \n\
-                            <input type="number" id="signin-phone" class="form-control" placeholder="Numero"></input></div>');
+    $("#body-page").append('<label id="text-phone">Numero di Telefono</label>');
+    $("#body-page").append(BlApp.inputText.html("signin-phone", "number", "Numero di telefono"));
     
     var html = '<label>Facolta</label>\
                 <select id="signin-faculty">\n\
