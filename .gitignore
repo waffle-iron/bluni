@@ -1,5 +1,3 @@
-# NetBeans folders
-nbproject
 
 # Windows image file caches
 Thumbs.db
@@ -50,3 +48,6 @@ Temporary Items
 .apdisk
 nbproject/private/private.xml
 *.properties
+*.properties
+nbproject/project.properties
+nbproject
