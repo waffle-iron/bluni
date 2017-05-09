@@ -6,6 +6,7 @@ Bl.menu.render=(function()
                           +'class="ui-btn-right ui-btn-icon-notext ui-icon-carat-d" data-role="button" role="button"></a>');
     $('#bl-menu').append(Bl.menu.getHtml());
     $('#menu').hide();
+    
     $("#bl-icon-menu").click(function(){
         $('#menu').toggle("slow");
     });
@@ -14,19 +15,18 @@ Bl.menu.render=(function()
         $('#menu').hide("slow");
     });
     
-    
     $("#menu a").click(function()
     {
         $("#"+tab).removeClass("ui-btn-active");
-        var tab = $(this).text();
+        var tab = "opz-"+$(this).text();
         $("#"+tab).addClass("ui-btn-active");
         $('#menu').hide("slow");
         
         switch(tab)
         {
-            case "Logout":
+            case "opz-Logout":
             {
-                Bl.logout.start();
+                Bl.configuration.logout();
                 break;
             }
         }
@@ -43,10 +43,12 @@ Bl.menu.getHtml=(function()
     for(var i=0; i< opzioni.length; i++)
     {
         html+='<li data-option-index="'+i+'" data-icon="false" role="option" aria-selected="true">'
-                +'<a href="#" id="'+opzioni[i]+'" tabindex="-1"';
+                +'<a href="#" id="opz-'+opzioni[i]+'" tabindex="-1"';
         
         if(i===0)
+        {
             html+='class="ui-btn ui-btn-active" >';
+        }
          else
             html+='class="ui-btn" >';
         

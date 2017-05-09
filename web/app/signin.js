@@ -32,7 +32,6 @@ Bl.signin.render = (function()
     });
 
     $("#body-page").trigger("create");
-    $("#header-page").trigger("create");
 });
 
 Bl.signin.appendHtml = (function()
