@@ -65,7 +65,8 @@ Bl.login.start=(function(user, psw)
             if(msg==="1")
             {
                 alert("login correttamente");
-                //Obj.start();
+                Bl.configuration.setCookie("bluni-cookie", user);
+                Bl.vendi.render();
             }	
             else
             {

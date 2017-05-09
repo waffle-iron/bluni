@@ -22,7 +22,7 @@ Bl.main.render = (function()
     
     $('#btn-vendi').click(function()
     {
-       Bl.login.render();
+       Bl.configuration.start();
     });
     
     $('#body-page').trigger("create");

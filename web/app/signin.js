@@ -95,7 +95,7 @@ Bl.signin.user= (function(param)
     var pathParts = window.location.href.split("/");
     var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
     
-    var data = "user="+param['user']+
+    var dati = "user="+param['user']+
             "&psw="+param['psw']+
             "&email="+param['email']+
             "&phone="+param['phone']+
@@ -104,7 +104,7 @@ Bl.signin.user= (function(param)
     $.ajax({
         type: "POST",
         url: root+"/src/main/connect/signin.php",
-        data: data,
+        data: dati,
         dataType: "html",
 
         success: function(msg)
@@ -112,8 +112,8 @@ Bl.signin.user= (function(param)
             if(msg==="1")
             {
                 alert("Iscrizione eseguita correttamente");
-                //jQuery.cookie("bluni-cookie",user);
-                Obj.start();
+                Bl.configuration.setCookie("bluni-cookie", dati["user"]);
+                Bl.configuration.start();
             }	
             else
             {
