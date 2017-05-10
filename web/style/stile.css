@@ -136,7 +136,6 @@ html,body, div[data-role ="page"]
     width:100%;
 }
 
-/*Signin*/
 #signin
 {
     position: fixed;
@@ -183,7 +182,49 @@ html,body, div[data-role ="page"]
     float: left;
     margin-top: 20px;
 }
-/*  MAIN PAGE   */
+
+/*  VENDITA   */
+
+.sale-form, #text-faculty
+{
+    margin-top:20px;
+}
+
+#text-price
+{
+    color:green;
+}
+
+#sale-form-price
+{
+    border:0;
+    border-radius: 4px;
+    width: 40%;
+    color:red;
+    
+}
+
+#btn-sale-back
+{
+    margin-top: 40px; 
+}
+
+#btn-sale-next
+{
+    margin-top: 40px;
+    float:right;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* HOME */
 #logout
