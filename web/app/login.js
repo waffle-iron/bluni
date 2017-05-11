@@ -1,8 +1,9 @@
-
+/* global BlApp, Bl */
 Bl.login = {};
 
 Bl.login.render = (function()
 {
+    console.log("sono in login");
     $('#page').css("cssText","padding-top: 40px !important;"); 
 
     $("#body-page").empty();

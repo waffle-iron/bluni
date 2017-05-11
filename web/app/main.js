@@ -1,3 +1,5 @@
+/* global BlApp, Bl */
+
 Bl.main = {};
 
 Bl.main.render = (function()
