@@ -8,6 +8,4 @@ $(document).ready(function()
     $("#header-user").append(Bl.configuration.getCookie("bluni-cookie"));
     Bl.menu.render();
     Bl.vendi.render();
-    
-    Bl.vendi.render();
 });
