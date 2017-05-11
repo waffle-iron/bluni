@@ -21,7 +21,7 @@ Bl.login.render = (function()
     
     $("#body-page").append('<a id="btn-back" class="btn btn-default">Annulla</a>');
     //Signin
-    $("#body-page").append('<a href="#" id="signin">Iscriviti</a>');
+    $("#body-page").append('<a href="#" id="signin" class="btn btn-default">Iscriviti</a>');
     
 
     $("#input-password").click(function(){
