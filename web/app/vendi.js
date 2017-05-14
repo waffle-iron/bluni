@@ -7,7 +7,7 @@ Bl.vendi.render = (function()
 {
    $("#body-page").empty();
    
-   Bl.idUser = "Samir";
+   Bl.idUser =1;
    
    Bl.vendi.appendHtml();
    
@@ -28,7 +28,7 @@ Bl.vendi.render = (function()
        param['date'] = new Date();
        param['faculty'] = $("#sale-faculty").val();
        
-       var required = ['title', 'price'];
+       var required = ['title', 'price', 'date', 'faculty'];
        
        if(Bl.vendi.controlData(param, required))
        {
@@ -81,7 +81,7 @@ Bl.vendi.controlData = function(param, required)
 {
     for(var i =0; i < required.length; i++)
     {
-        if($.isEmptyObject(param[required[i]]))
+        if(param[required[i]] === "" || param[required[i]] === null )
         {
             return false;
         }
@@ -94,21 +94,11 @@ Bl.vendi.publish= (function(param)
     var pathParts = window.location.href.split("/");
     var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
     
-    var dati = "id_user="+param['id_user']+
-            "&title="+param['title']+
-            "&author="+param['author']+
-            "&isbn="+param['isbn']+
-            "&price="+param['price']+
-            "&description="+param['description']+
-            "&image="+param['image']+
-            "&date="+param['date']+
-            "&faculty="+param['faculty'];
-    
     $.ajax({
         type: "POST",
         url: root+"/src/main/connect/sale.php",
-        data: dati,
-        dataType: "html",
+        data: {param: JSON.stringify(param)},
+        dataType: "text",
 
         success: function(msg)
         {
@@ -124,7 +114,7 @@ Bl.vendi.publish= (function(param)
         },
         error: function()
         {
-            alert("no");
+            alert("Errore pubblicazione");
             return false;
         }
     });
