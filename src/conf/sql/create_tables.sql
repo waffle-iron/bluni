@@ -16,7 +16,7 @@ PRIMARY KEY(`id_user`, `username`, `email`)
 );
 
 CREATE TABLE `unibg_books`(
-`id_user` INT(10) NOT NULL REFERENCES `unibg_users`(`id_user`),
+`id_user` INT(10) NOT NULL,
 `title` VARCHAR(50) NOT NULL,
 `author` VARCHAR(50) NOT NULL,
 `price` DECIMAL(4,2) NOT NULL,
@@ -25,4 +25,5 @@ CREATE TABLE `unibg_books`(
 `faculty` VARCHAR(50) NOT NULL,
 `date` DATETIME NOT NULL,
 PRIMARY KEY(`id_user`, `title`)
+FOREIGN KEY (`id_user`) REFERENCES `unibg_users`(`id_user`)
 );
