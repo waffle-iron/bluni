@@ -42,7 +42,6 @@ Bl.login.render = (function()
     });
     
     $('#btn-back').click(function(){
-        //Obj.signin.render();
         Bl.main.render();
     });
 
@@ -69,9 +68,9 @@ Bl.login.start=(function(user, psw)
             if(msg !== "0")
             {
                 console.log(msg);
-                alert("login correttamente");
-                //Bl.configuration.setCookie("bluni-cookie", user);
-                Bl.configuration.start();
+                Bl.configuration.setCookie("bluni-cookie", user);
+                Bl.configuration.load();
+                Bl.vendi.render();
             }	
             else
             {

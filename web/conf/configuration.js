@@ -1,23 +1,24 @@
 var Bl = {};
 Bl.configuration = {};
 
-Bl.configuration.start=(function()
+Bl.configuration.isRegistered = false;
+
+//Carica i parametri utente, rendere header e menu
+Bl.configuration.load=(function()
 {
     if(Bl.configuration.getCookie("bluni-cookie"))
     {
-        $("#header-user").append(Bl.configuration.getCookie("bluni-cookie"));
+        $("#header-user").html(Bl.configuration.getCookie("bluni-cookie"));
         Bl.menu.render();
-        Bl.vendi.render();
-    }
-    else
-    {
-        Bl.login.render();
+        Bl.configuration.isRegistered = true;
     }
 });
 
 Bl.configuration.logout = (function()
 {
     Bl.configuration.removeCookie("bluni-cookie");
+    Bl.configuration.isRegistered = false;
+    
     $('#header-user').empty();
     $('#bl-menu').empty();
 

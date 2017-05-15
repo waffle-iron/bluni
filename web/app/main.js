@@ -24,7 +24,14 @@ Bl.main.render = (function()
     
     $('#btn-vendi').click(function()
     {
-       Bl.configuration.start();
+       if(Bl.configuration.isRegistered)
+       {
+           Bl.vendi.render();
+       }
+       else
+       {
+           Bl.login.render();
+       }
     });
     
     $('#body-page').trigger("create");

@@ -2,6 +2,7 @@
 //$(window.location).attr('href', '#page');
 $(document).ready(function()
 {
+    Bl.configuration.load();
     Bl.main.render();
     
     /* TEST
