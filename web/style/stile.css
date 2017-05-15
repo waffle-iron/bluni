@@ -182,6 +182,28 @@ html,body, div[data-role ="page"]
     float: left;
     margin-top: 20px;
 }
+/*  FINE SIGNIN */
+
+
+/*  CERCA   */
+#btn-back-cerca
+{
+    position: fixed;
+    bottom: 20px;
+    float:left;
+    left:30px;
+}
+
+#btn-search-cerca
+{
+    position: fixed;
+    bottom: 20px;
+    float:right;
+    right:30px;
+}
+
+/*  FINE CERCA   */
+
 
 /*  VENDITA   */
 

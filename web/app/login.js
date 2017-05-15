@@ -1,26 +1,29 @@
-
+/* global BlApp, Bl */
 Bl.login = {};
 
 Bl.login.render = (function()
 {
+    console.log("sono in login");
     $('#page').css("cssText","padding-top: 40px !important;"); 
 
     $("#body-page").empty();
 
     $("#body-page").append('<div id="logo">Blunì</div>');
     $("#body-page").append('<div class="info-txt-user"><p>Username</p></div>');
-    $("#body-page").append('<div class="input-user"><input type="text" id="input-username" value="samir"></input></div>');
+
+    $("#body-page").append('<div class="input-user">');
+    $("#body-page").append(BlApp.inputText.html("input-username", "text", "Username"));
+    $("#body-page").append('</div>');
     $("#body-page").append('<div class="info-txt-psw"><p>Password</p></div>');
-    $("#body-page").append('<div class="input-psw"> <input id="input-password" type="password" value="samir123"></input></div>');
+    $("#body-page").append('<div class="info-txt-psw">');
+    $("#body-page").append(BlApp.inputText.html("input-password", "password", "Password"));
+    $("#body-page").append('</div>');
     $("#body-page").append('<a id="btn-access" class="btn btn-default">Login</a>');
     
     $("#body-page").append('<a id="btn-back" class="btn btn-default">Annulla</a>');
     //Signin
-    $("#body-page").append('<a href="#" id="signin">Iscriviti</a>');
-
-    $("#input-username").click(function(){
-        $(this).val('');
-    });
+    $("#body-page").append('<a href="#" id="signin" class="btn btn-default">Iscriviti</a>');
+    
 
     $("#input-password").click(function(){
         $(this).val('');
