@@ -1,31 +1,30 @@
 <?php
+//header("Content-Type: application/json; charset=UTF-8");
+if(isset($_GET['param']))
+{
+    $obj = json_decode($_GET['param'], false);
+        
+    include "../connect/db_connect.php";
+    
+    $sql=" SELECT *
+           FROM unibg_users 
+           WHERE 
+           BINARY username ='$obj->user' AND BINARY password = '$obj->psw'";
 
-    if($_POST['user'] && $_POST['psw'])
+    $res = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($res) > 0) 
     {
-        $user = $_POST['user'];
-        $psw = $_POST['psw'];
-
-        include "../connect/db_connect.php";
-
-        $sql="SELECT username, password 
-            FROM unibg_users 
-            WHERE 
-            BINARY username ='$user' AND BINARY password = '$psw'";
-
-        $res = mysqli_query($conn, $sql);
-
-        if(mysqli_num_rows($res))
-        {
-            echo true;
-        }
-        else
-        {
-            echo false;
-        }
+        $out = mysqli_fetch_assoc($res);
+        unset($out['password']);
+        echo json_encode($out);
     }
     else
     {
-        echo "[ERRORE] dati non inseriti correttamente";
+        echo "nessuno risultato dalla query";
     }
-
-	
+}
+else
+{
+    echo "[ERRORE] parametri non passati correttamente ".$_GET['param'];
+}

@@ -10,6 +10,7 @@ Bl.login.render = (function()
 
     $("#body-page").append('<div id="logo">Blunì</div>');
     $("#body-page").append('<div class="info-txt-user"><p>Username</p></div>');
+
     $("#body-page").append('<div class="input-user">');
     $("#body-page").append(BlApp.inputText.html("input-username", "text", "Username"));
     $("#body-page").append('</div>');
@@ -53,21 +54,23 @@ Bl.login.start=(function(user, psw)
     var pathParts = window.location.href.split("/");
     var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
     
-    var data = "user="+user+
-            "&psw="+psw;
+    var param = {};
+    param['user'] = user;
+    param['psw'] = psw;
     
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: root+"/src/main/connect/login.php",
-        data: data,
-        dataType: "html",
+        data: {param: JSON.stringify(param)},
+        dataType: "text",
 
         success: function(msg)
         {
-            if(msg==="1")
+            if(msg !== "0")
             {
+                console.log(msg);
                 alert("login correttamente");
-                Bl.configuration.setCookie("bluni-cookie", user);
+                //Bl.configuration.setCookie("bluni-cookie", user);
                 Bl.configuration.start();
             }	
             else
@@ -77,7 +80,7 @@ Bl.login.start=(function(user, psw)
         },
         error: function()
         {
-            alert("no");
+            alert("no ");
             return false;
         }
     });
