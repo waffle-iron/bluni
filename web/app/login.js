@@ -62,7 +62,7 @@ Bl.login.start=(function(user, psw)
         type: "GET",
         url: root+"/src/main/connect/login.php",
         data: {param: JSON.stringify(param)},
-        dataType: "text",
+        dataType: "json",
 
         success: function(msg)
         {
