@@ -100,17 +100,11 @@ Bl.signin.user= (function(param)
     var pathParts = window.location.href.split("/");
     var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
     
-    var dati = "user="+param['user']+
-            "&psw="+param['psw']+
-            "&email="+param['email']+
-            "&phone="+param['phone']+
-            "&faculty="+param['faculty'];
-    
     $.ajax({
         type: "POST",
         url: root+"/src/main/connect/signin.php",
-        data: dati,
-        dataType: "html",
+        data: {param: JSON.stringify(param)},
+        dataType: "text",
 
         success: function(msg)
         {

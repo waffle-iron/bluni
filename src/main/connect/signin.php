@@ -1,18 +1,13 @@
 <?php
    
-    if($_POST['user'] && $_POST['psw'] 
-            && $_POST['email']&& $_POST['phone']&& $_POST['faculty'])
+    if(isset($_POST['param']))
     {
-        $user = $_POST['user'];
-        $psw = $_POST['psw'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $faculty = $_POST['faculty'];
+        $obj = json_decode($_POST['param'], false);
 
         include '../connect/db_connect.php';
         
         $sql = "INSERT INTO unibg_users (username , password, email, phone_number, faculty) "
-                . "VALUES ('$user', '$psw', '$email', '$phone', '$faculty')";
+                . "VALUES ('$obj->user', '$obj->psw', '$obj->email', '$obj->phone', '$obj->faculty')";
        
         if(mysqli_query($conn, $sql))
             echo true;
