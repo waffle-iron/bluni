@@ -15,7 +15,12 @@ if(isset($_POST['title']))
 
     if(mysqli_num_rows($res) > 0)
     {
-        $out = mysqli_fetch_assoc($res);
+        $out = array();
+        while($row = mysqli_fetch_assoc($res))
+        {
+            $out[] = $row;
+        }
+        
         echo json_encode($out);
     }
     else

@@ -7,7 +7,7 @@ Bl.vendi.render = (function()
 {
    $("#body-page").empty();
    
-   Bl.idUser =1;
+   Bl.idUser = Bl.user.getIdUser();
    
    Bl.vendi.appendHtml();
    
