@@ -22,7 +22,7 @@ Bl.user.getEmail = function()
     return Bl.user.config.email;
 };
 
-Bl.user.getPhone_number = function()
+Bl.user.getPhoneNumber = function()
 {
     return Bl.user.config.phone_number;
 };
@@ -30,4 +30,9 @@ Bl.user.getPhone_number = function()
 Bl.user.getFaculty = function()
 {
     return Bl.user.config.faculty;
+};
+
+Bl.user.getConfig = function()
+{
+    return Bl.user.config;
 };

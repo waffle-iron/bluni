@@ -93,6 +93,8 @@ Bl.signin.controlData=(function(param)
     return true;
 });
 
+
+
 Bl.signin.user= (function(param)
 {
     var pathParts = window.location.href.split("/");
@@ -115,8 +117,7 @@ Bl.signin.user= (function(param)
             if(msg==="1")
             {
                 alert("Iscrizione eseguita correttamente");
-                Bl.configuration.setCookie("bluni-cookie", dati["user"]);
-                Bl.configuration.start();
+                Bl.login.start(param['user'], param['psw']);
             }	
             else
             {

@@ -33,7 +33,7 @@ Bl.login.render = (function()
     $("#btn-access").click(function(){
         var user = $('#input-username').val();
         var psw = $('#input-password').val();
-
+        
         Bl.login.start(user,psw);	
     });
 
@@ -67,8 +67,7 @@ Bl.login.start=(function(user, psw)
         {
             if(msg !== "0")
             {
-                console.log(msg);
-                Bl.configuration.setCookie("bluni-cookie", user);
+                Bl.configuration.set(JSON.stringify(msg));
                 Bl.configuration.load();
                 Bl.vendi.render();
             }	
@@ -79,7 +78,7 @@ Bl.login.start=(function(user, psw)
         },
         error: function()
         {
-            alert("no ");
+            alert("ERRORE connessione");
             return false;
         }
     });
