@@ -60,17 +60,17 @@ Bl.cerca.search= (function()
         type: "POST",
         url: root+"/src/main/connect/lista.php",
         data: titolo,
-        dataType: "html",
+        dataType: "json",
 
         success: function(msg)
         {
-            if(msg==="1")
+            if(msg !== "0")
             {
-                alert("titolo trovato");
+                console.log(msg);
                 Bl.lista.render();
             }	
             else
-            {   console.log(msg);
+            {
                 alert("msg: titolo non trovato");
             }
         },
