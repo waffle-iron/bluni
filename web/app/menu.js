@@ -54,7 +54,7 @@ Bl.menu.getHtml=(function()
     {
         html+='<li data-option-index="'+i+'" data-icon="false" role="option" aria-selected="true">'
                 +'<a href="#" id="opz-'+opzioni[i]+'" tabindex="-1"';
-        html+='class="ui-btn" >';
+        html+='class="ui-btn bl-menu-btn" >';
         html+=opzioni[i]+'</a> </li>';
     }
     

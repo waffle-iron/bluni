@@ -55,9 +55,10 @@ html,body, div[data-role ="page"]
 #menu
 {
     top: 43px; 
-    float:right;
-    width:192px !important;
-    right:10px;
+    width:100% !important;
+}
+.bl-menu-btn
+{
 }
 
 #body-page
