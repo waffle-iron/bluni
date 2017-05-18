@@ -9,7 +9,7 @@ if(isset($_POST['title']))
     $sql="  SELECT *
             FROM unibg_books 
             WHERE 
-            title ='$titolo' "; 
+            title like '%$titolo%'"; 
 
     $res = mysqli_query($conn, $sql);
 

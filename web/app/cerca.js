@@ -4,11 +4,45 @@ Bl.cerca = {};
 
 Bl.cerca.render = (function()
 {
-   console.log("sono in cerca");
-   $('#body-page').empty();
-   Bl.cerca.appendHtml();
-   $("#body-page").trigger("create");
+    $('#body-page').empty();
+    
+    Bl.cerca.appendHtml();
+    
+    $('#search-title-book').keyup(function(event)
+    {
+        var except = [" ", 'Backspace', 'Enter'];
+        var valore = $("#search-title-book").val();
+        var length = valore.length;
+        
+        if(length === 1 && valore === " ")
+        {
+            $("#search-title-book").val('');
+            return;
+        }
+        
+        if(event.key !== "Backspace" || length === 0)
+        {
+            if(except.indexOf(event.key) >= 0)
+            {
+                return;
+            }
+        }
+        console.log("sono qui "+event.key );
+        //Bl.cerca.search();
+    });
+    
+    
+    $('#btn-back-cerca').click(function(){
+        Bl.main.render();
+    });
+
+    $('#btn-search-cerca').click(function(){
+        Bl.cerca.search();
+    });
+    
+    $("#body-page").trigger("create");
 });
+
 Bl.cerca.appendHtml = (function()
 {
     $("#body-page").append('<div id="logo">Blunì</div><hr>');
@@ -31,15 +65,6 @@ Bl.cerca.appendHtml = (function()
     
     $("#body-page").append('<a id="btn-back-cerca" class="btn btn-default">Indietro</a>');
     $("#body-page").append('<a id="btn-search-cerca" class="btn btn-default">Cerca</a>');
-    
-    $('#btn-back-cerca').click(function(){
-        Bl.main.render();
-    });
-    
-    $('#btn-search-cerca').click(function(){
-        Bl.cerca.search()
-        
-    });
 });
 
 Bl.cerca.search= (function()
@@ -67,7 +92,7 @@ Bl.cerca.search= (function()
             if(msg !== "0")
             {
                 console.log(JSON.stringify(msg));
-                Bl.lista.render();
+                //Bl.lista.render();
             }	
             else
             {
