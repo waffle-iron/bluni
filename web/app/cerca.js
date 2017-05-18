@@ -66,7 +66,7 @@ Bl.cerca.search= (function()
         {
             if(msg !== "0")
             {
-                console.log(msg);
+                console.log(JSON.stringify(msg));
                 Bl.lista.render();
             }	
             else

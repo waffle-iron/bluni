@@ -1,5 +1,6 @@
 Bl.menu = {};
 
+var tab = "";
 Bl.menu.render=(function()
 {
     $('#bl-menu').append('<a href="#menu-panel" id="bl-icon-menu"  data-icon="bars" data-iconpos="notext"'
@@ -21,12 +22,18 @@ Bl.menu.render=(function()
     $("#menu a").click(function()
     {
         $("#"+tab).removeClass("ui-btn-active");
-        var tab = "opz-"+$(this).text();
+        tab = "opz-"+$(this).text();
         $("#"+tab).addClass("ui-btn-active");
         $('#menu').hide("slow");
         
         switch(tab)
         {
+            case "opz-Account":
+            {
+                Bl.account.render();
+                break;
+            }
+            
             case "opz-Logout":
             {
                 Bl.configuration.logout();
@@ -38,7 +45,7 @@ Bl.menu.render=(function()
 
 Bl.menu.getHtml=(function()
 {
-    var opzioni = ["Logout"];
+    var opzioni = ["Account", "Logout"];
     var html='<div id="menu" class="ui-popup-container ui-popup-active" style="">'
                 +'<div id="select-choice-custom-listbox" class="ui-selectmenu ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all">'
                     +'<ul class="ui-selectmenu-list ui-listview" role="listbox" aria-labelledby="select-choice-custom-button">';
@@ -47,14 +54,7 @@ Bl.menu.getHtml=(function()
     {
         html+='<li data-option-index="'+i+'" data-icon="false" role="option" aria-selected="true">'
                 +'<a href="#" id="opz-'+opzioni[i]+'" tabindex="-1"';
-        
-        if(i===0)
-        {
-            html+='class="ui-btn ui-btn-active" >';
-        }
-         else
-            html+='class="ui-btn" >';
-        
+        html+='class="ui-btn" >';
         html+=opzioni[i]+'</a> </li>';
     }
     
@@ -62,3 +62,8 @@ Bl.menu.getHtml=(function()
     
     return html;
 });
+
+Bl.menu.removeSelect = function()
+{
+    $("#"+tab).removeClass("ui-btn-active");
+};
