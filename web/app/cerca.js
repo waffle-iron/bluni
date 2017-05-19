@@ -63,7 +63,7 @@ Bl.cerca.search =(function(titolo, facolta)
     
     $.ajax({
         type: "GET",
-        url: root+"/src/main/connect/login.php",
+        url: root+"/src/main/connect/lista.php",
         data: {param: JSON.stringify(param)},
         dataType: "json",
 

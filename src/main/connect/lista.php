@@ -7,21 +7,30 @@ if(isset($_GET['param']))
     include "../connect/db_connect.php";
     
     $sql=" SELECT *
-           FROM unibg_users 
+           FROM unibg_books 
            WHERE 
-           title LIKE '$obj->title' AND faculty = '$obj->psw'";
-
+           title LIKE '$obj->title'";
+    
+    if($obj->faculty != "Tutte le facoltà")
+    { 
+        $sql = $sql."AND faculty = '$obj->faculty'";
+    }
+    
     $res = mysqli_query($conn, $sql);
     
-    if (mysqli_num_rows($res) > 0) 
+    if(mysqli_num_rows($res) > 0)
     {
-        $out = mysqli_fetch_assoc($res);
-        //unset($out['password']);
+        $out = array();
+        while($row = mysqli_fetch_assoc($res))
+        {
+            $out[] = $row;
+        }
+        
         echo json_encode($out);
     }
     else
     {
-        echo "nessuno risultato dalla query";
+        echo false;
     }
 }
 else
