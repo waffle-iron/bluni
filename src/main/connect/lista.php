@@ -1,36 +1,30 @@
 <?php
-
-if(isset($_POST['title']))
+//header("Content-Type: application/json; charset=UTF-8");
+if(isset($_GET['param']))
 {
-    $titolo = $_POST['title'];
-
+    $obj = json_decode($_GET['param'], false);
+        
     include "../connect/db_connect.php";
-
-    $sql="  SELECT *
-            FROM unibg_books 
-            WHERE 
-            title like '%$titolo%'"; 
+    
+    $sql=" SELECT *
+           FROM unibg_users 
+           WHERE 
+           title LIKE '$obj->title' AND faculty = '$obj->psw'";
 
     $res = mysqli_query($conn, $sql);
-
-    if(mysqli_num_rows($res) > 0)
+    
+    if (mysqli_num_rows($res) > 0) 
     {
-        $out = array();
-        while($row = mysqli_fetch_assoc($res))
-        {
-            $out[] = $row;
-        }
-        
+        $out = mysqli_fetch_assoc($res);
+        //unset($out['password']);
         echo json_encode($out);
     }
     else
     {
-        echo false;
+        echo "nessuno risultato dalla query";
     }
 }
 else
 {
-    echo "[ERRORE] dati non inseriti correttamente";
+    echo "[ERRORE] parametri non passati correttamente ".$_GET['param'];
 }
-
-	
