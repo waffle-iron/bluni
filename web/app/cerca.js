@@ -9,7 +9,7 @@ Bl.cerca.render = (function ()
     Bl.cerca.appendHtml();
 
     $('#btn-back-cerca').click(function () {
-        Bl.main.render();
+        //Bl.ProvaLista.render();
     });
 
     $('#btn-search-cerca').click(function () {
@@ -22,7 +22,11 @@ Bl.cerca.render = (function ()
         return false;
     }
     
-        Bl.cerca.search(titolo, facolta);
+        var param = {};
+        param['title'] = titolo;
+        param['faculty'] = facolta;
+        
+        Bl.cerca.search(param);
     });
 
     $("#body-page").trigger("create");
@@ -52,14 +56,10 @@ Bl.cerca.appendHtml = (function ()
     $("#body-page").append('<a id="btn-search-cerca" class="btn btn-default">Cerca</a>');
 });
 
-Bl.cerca.search =(function(titolo, facolta)
+Bl.cerca.search =(function(param)
 {
     var pathParts = window.location.href.split("/");
     var root = pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
-    
-    var param = {};
-    param['title'] = titolo;
-    param['faculty'] = facolta;
     
     $.ajax({
         type: "GET",
@@ -71,9 +71,14 @@ Bl.cerca.search =(function(titolo, facolta)
         {
             if(msg !== "0")
             {
+                if(isEmptyObject(msg))
+                {
+                    alert("nessun risultato trovato");
+                }
+                
                 var libri = JSON.stringify(msg);
                 console.log(libri);
-                Bl.lista.render();
+                Bl.lista.render(msg);
             }	
             else
             {
