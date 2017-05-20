@@ -31,14 +31,18 @@ html,body, div[data-role ="page"]
 /*HEADER*/
 .headerPage
 {
-    height:43px;  
-    line-height: 40px;
+    height:50px;  
     /*background-color: #42a5f5 !important; */
-    background-color: #00b8d4 !important;
+    background-color: #00ABC7 !important;
+    font-size: 20px;
+    border-bottom: 1px solid #00ABC7  !important;
+    border-width: 15px;
+    box-shadow: 0 0px 10px  #333333;
 }
 
 #bl-header-h1
 {
+    line-height: 20px !important;
     font-weight: bold;
     margin: 0;
     width: 100%;
@@ -54,11 +58,17 @@ html,body, div[data-role ="page"]
 
 #menu
 {
-    top: 43px; 
+    top: 50px; 
     width:100% !important;
 }
-.bl-menu-btn
+#select-choice-custom-listbox
 {
+    border-top: 0 !important;
+}
+#bl-icon-menu
+{
+    float:right;
+    margin-top:6px;
 }
 
 #body-page
@@ -71,33 +81,41 @@ html,body, div[data-role ="page"]
 /*  MAIN PAGE  */
 #logo
 {
-    margin-top: 40px;
+    margin-top: 18%;
     text-align: center;
     font-size: 60px;
     font-weight: bold;
     color:white;
-    text-shadow:-2px -2px 0px  #42a5f5, 
-                2px -2px 0px  #42a5f5, 
-                -2px 2px 0px  #42a5f5,
-                2px -2px 0px  #42a5f5;
+    text-shadow:-2px -2px 8px  #00ABC7, 
+                2px -2px 0px  #00ABC7, 
+                -2px 2px 0px  #00ABC7,
+                2px -2px 0px  #00ABC7;
+    
+    /*
+    font-family: "new century schoolbook";
+    font-style: italic;
+    color: #00ABC7;
+    */
+}
+
+#sub-title
+{
+    text-align: center;
+    color: #00ABC7;
 }
 
 #btn-main-content
 {
-    width: 200px;
-    height: 200px;
-
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -100px;
+   margin-top: 20%;
+   padding: 20px;
 }
 
 #btn-cerca
 {
     padding: 20px;
     width: 100%;
+    border-color: #00ABC7;
+    color: #00ABC7;
 }
 
 #btn-vendi
@@ -105,6 +123,8 @@ html,body, div[data-role ="page"]
     margin-top: 50px;
     padding: 20px;
     width: 100%;
+    border-color: #00ABC7;
+    color: #00ABC7;
 }
 /*  END MAIN PAGE  */
 
@@ -136,6 +156,7 @@ html,body, div[data-role ="page"]
 {
     margin-top: 50px;
     width:100%;
+    color: #00ABC7;
 }
 
 #signin
@@ -144,6 +165,7 @@ html,body, div[data-role ="page"]
     bottom: 20px;
     right:30px;
     margin-bottom: 4px;
+    color: #00ABC7;
 }
 
 #btn-back
@@ -152,6 +174,7 @@ html,body, div[data-role ="page"]
     bottom: 20px;
     float:right;
     left:30px;
+    color: #00ABC7;
 }
 
 
@@ -190,18 +213,13 @@ html,body, div[data-role ="page"]
 /*  CERCA   */
 #btn-back-cerca
 {
-    position: fixed;
-    bottom: 20px;
-    float:left;
-    left:30px;
+    margin-top: 50px;
 }
 
 #btn-search-cerca
 {
-    position: fixed;
-    bottom: 20px;
+    margin-top: 50px;
     float:right;
-    right:30px;
 }
 
 /*  FINE CERCA   */
