@@ -9,7 +9,7 @@ if(isset($_GET['param']))
     $sql=" SELECT *
            FROM unibg_books 
            WHERE 
-           title LIKE '$obj->title'";
+           title LIKE '%$obj->title%'";
     
     if($obj->faculty != "Tutte le facoltà")
     { 

@@ -9,7 +9,7 @@ Bl.cerca.render = (function ()
     Bl.cerca.appendHtml();
 
     $('#btn-back-cerca').click(function () {
-        //Bl.ProvaLista.render();
+        Bl.ProvaLista.render();
     });
 
     $('#btn-search-cerca').click(function () {
@@ -41,8 +41,7 @@ Bl.cerca.appendHtml = (function ()
     $("#body-page").append('<div class="form-group"><label id="text-search-title"> Titolo</label>');
     $("#body-page").append(BlApp.inputText.html("search-title-book", "text", "Titolo del libro"));
     $("#body-page").append('</div>');
-
-
+    
     var html = '<label id="text-faculty" >Facolta</label>\
                 <select id="search-faculty">\n\
                     <option selected>Tutte le facoltà</option>\n\
@@ -53,7 +52,7 @@ Bl.cerca.appendHtml = (function ()
     $("#body-page").append(html);
 
     $("#body-page").append('<a id="btn-back-cerca" class="btn btn-default">Indietro</a>');
-    $("#body-page").append('<a id="btn-search-cerca" class="btn btn-default">Cerca</a>');
+    $("#body-page").append('<a id="btn-search-cerca" class="btn btn-default" >Cerca</a>');
 });
 
 Bl.cerca.search =(function(param)
@@ -71,7 +70,7 @@ Bl.cerca.search =(function(param)
         {
             if(msg !== "0")
             {
-                if(isEmptyObject(msg))
+                if($.isEmptyObject(msg))
                 {
                     alert("nessun risultato trovato");
                 }

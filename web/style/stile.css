@@ -240,6 +240,15 @@ html,body, div[data-role ="page"]
 }
 /* fine VENDITA */
 
+/*  LISTA   */
+
+#btn-back-lista
+{
+    position: fixed;
+    bottom: 20px;
+    float:right;
+    left:30px;
+}
 
 /*  ACCOUNT */
 .acn-bold-text
@@ -256,11 +265,54 @@ html,body, div[data-role ="page"]
 }
 /* fine ACCOUNT */
 
+/* element LIST */
+.el-content
+{
+    margin-top: 20px;
+    padding: 5px;
+    width: 100%;
+    border: 2px solid rgb(221,221,221);
+    border-radius: 5px !important;
+    box-shadow: 5px 5px 19px #333333;
+    
+}
+
+.el-table
+{   
+   width: 100%; 
+}
+
+.username
+{
+    text-align: left;
+}
+
+.el-title
+{
+    text-align: center; 
+    font-size: large;
+    font-weight: bolder;
+}
 
 
 
+.el-description
+{
+    text-align: left;
+    color: #bdbdbd; 
+}
 
+.el-date
+{
+    text-align: left;
+      
+}
 
+.el-price
+{
+    text-align: right; 
+    color: green;
+}
 
 
 
