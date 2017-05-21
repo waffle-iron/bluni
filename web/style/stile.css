@@ -211,6 +211,16 @@ html,body, div[data-role ="page"]
 
 
 /*  CERCA   */
+#subTitle-page-search
+{
+    margin-top: 20px;
+}
+
+#text-search-title
+{
+    margin-top: 40px;
+}
+
 #btn-back-cerca
 {
     margin-top: 50px;
