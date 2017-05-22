@@ -13,7 +13,7 @@ Bl.cerca.render = (function ()
         Bl.ProvaLista.render();
 
     
-    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "40%"}, "slow");
+    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "10%"}, "200");
     //$("#logo").animate({ "width": "40%"}, "slow");
     
     $('#search-title-book').keyup(function(event)
@@ -61,7 +61,7 @@ Bl.cerca.render = (function ()
 
 Bl.cerca.appendHtml = (function ()
 {
-    $("#body-page").append('<div id="logo">Blunì</div> <hr>');
+    $("#body-page").append('<div id="logo">Blunì</div>');
     $("#body-page").append('<h2 id="title-page-search">Cerca</h2>');
     $("#body-page").append('<h4 id="subTitle-page-search">Inserisci i dati del libro</h4>');
 

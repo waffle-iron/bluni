@@ -36,7 +36,7 @@ Bl.main.render = (function()
             {
                 Bl.login.render();
             }
-            
+            //è per l'animazione, quando finisce devo rimettere display a block per visualizzare il contenuto
             $("#body-page").css("cssText","display: block");
         });
     });
