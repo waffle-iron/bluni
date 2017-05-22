@@ -16,7 +16,7 @@ PRIMARY KEY(`id_user`, `username`, `email`)
 );
 
 CREATE TABLE `unibg_books`(
-`id_user` INT(10) NOT NULL,
+`username` VARCHAR(50) NOT NULL,
 `title` VARCHAR(50) NOT NULL,
 `author` VARCHAR(50) NOT NULL,
 `price` DECIMAL(4,2) NOT NULL,
@@ -24,6 +24,6 @@ CREATE TABLE `unibg_books`(
 `image` BLOB,
 `faculty` VARCHAR(50) NOT NULL,
 `date` DATETIME NOT NULL,
-PRIMARY KEY(`id_user`, `title`)
-FOREIGN KEY (`id_user`) REFERENCES `unibg_users`(`id_user`)
+PRIMARY KEY(`username`, `title`, `date`),
+FOREIGN KEY (`username`) REFERENCES `unibg_users`(`username`) ON DELETE CASCADE
 );

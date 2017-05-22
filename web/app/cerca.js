@@ -8,8 +8,35 @@ Bl.cerca.render = (function ()
 
     Bl.cerca.appendHtml();
 
+
     $('#btn-back-cerca').click(function () {
         Bl.ProvaLista.render();
+
+    
+    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "40%"}, "slow");
+    //$("#logo").animate({ "width": "40%"}, "slow");
+    
+    $('#search-title-book').keyup(function(event)
+    {
+        var except = [" ", 'Backspace', 'Enter'];
+        var valore = $("#search-title-book").val();
+        var length = valore.length;
+        
+        if(length === 1 && valore === " ")
+        {
+            $("#search-title-book").val('');
+            return;
+        }
+        
+        if(event.key !== "Backspace" || length === 0)
+        {
+            if(except.indexOf(event.key) >= 0)
+            {
+                return;
+            }
+        }
+        console.log("sono qui "+event.key );
+        //Bl.cerca.search();
     });
 
     $('#btn-search-cerca').click(function () {
@@ -34,8 +61,8 @@ Bl.cerca.render = (function ()
 
 Bl.cerca.appendHtml = (function ()
 {
-    $("#body-page").append('<div id="logo">Blunì</div><hr>');
-    $("#body-page").append('<h1 id="title-page-search">Cerca</h1>');
+    $("#body-page").append('<div id="logo">Blunì</div> <hr>');
+    $("#body-page").append('<h2 id="title-page-search">Cerca</h2>');
     $("#body-page").append('<h4 id="subTitle-page-search">Inserisci i dati del libro</h4>');
 
     $("#body-page").append('<div class="form-group"><label id="text-search-title"> Titolo</label>');

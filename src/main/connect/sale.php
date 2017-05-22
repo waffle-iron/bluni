@@ -8,7 +8,7 @@ if(isset($_POST['param']))
     include "../connect/db_connect.php";
 
     $sql="INSERT INTO unibg_books
-          VALUES ('$obj->id_user', '$obj->title', '$obj->author', "
+          VALUES ('$obj->username', '$obj->title', '$obj->author', "
             . "'$obj->price', '$obj->description', '$obj->image', '$obj->faculty', '$obj->date')";
 
     if(mysqli_query($conn, $sql))

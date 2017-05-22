@@ -10,10 +10,11 @@ Bl.main.render = (function()
     $('#body-page').empty();
 
     $("#body-page").append('<div id="logo">Blunì</div>');
+    $("#body-page").append('<p id="sub-title">La tua bacheca universitaria</p>');
     
     var html = '<div id="btn-main-content">';
-        html+= '<div><a id="btn-cerca" class="btn btn-default">Cerca</a></div>';
-        html+= '<div><a id="btn-vendi" class="btn btn-default">Vendi</a></div>';
+        html+= '<div><a id="btn-cerca" class="btn btn-default">CERCA</a></div>';
+        html+= '<div><a id="btn-vendi" class="btn btn-default" data-transition="fade">VENDI</a></div>';
         html+= '</div>';
     $("#body-page").append(html);
     
@@ -24,14 +25,20 @@ Bl.main.render = (function()
     
     $('#btn-vendi').click(function()
     {
-       if(Bl.configuration.isRegistered)
-       {
-           Bl.vendi.render();
-       }
-       else
-       {
-           Bl.login.render();
-       }
+        $("#body-page").animate({ "margin-left": "-=500px" }, "slow",function(){
+            
+             
+            if(Bl.configuration.isRegistered)
+            {
+                Bl.vendi.render();
+            }
+            else
+            {
+                Bl.login.render();
+            }
+            
+            $("#body-page").css("cssText","display: block");
+        });
     });
     
     $('#body-page').trigger("create");
