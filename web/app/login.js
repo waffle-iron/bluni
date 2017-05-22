@@ -8,12 +8,6 @@ Bl.login.render = (function()
     $("#body-page").empty();
     
     Bl.login.appendHtml();
-   
-   
-    $("#input-password").click(function()
-    {
-        $(this).val('');
-    });
 
     $("#btn-access").click(function()
     {
@@ -30,7 +24,7 @@ Bl.login.render = (function()
     $('#btn-back').click(function(){
         Bl.main.render();
     });
-
+    
     $('#body-page').trigger("create");
 });
 
@@ -53,9 +47,10 @@ Bl.login.appendHtml = function()
     $("#body-page").append('</div>');
     $("#body-page").append('<a id="btn-access" class="btn btn-default">Login</a>');
     
-    $("#body-page").append('<a id="btn-back" class="btn btn-default">Annulla</a>');
     //Signin
-    $("#body-page").append('<a href="#" id="signin" class="btn btn-default">Iscriviti</a>');
+    $("#body-page").append('<a id="signin">Iscriviti a Blunì</a>');
+    
+    $("#body-page").append('<a id="btn-back" class="btn btn-default">Annulla</a>');
     
 };
 
