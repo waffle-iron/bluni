@@ -10,6 +10,7 @@ BlApp.inputText.html = (function(id, type, placeholder)
     return html;
 });
 
+
 BlApp.element = {};
 
 BlApp.element.html = (function(user,titolo,descrizione,data,prezzo)
@@ -35,3 +36,4 @@ BlApp.formGroup.html = function(label, id_input, type_input, placeholder_input)
                 </div>';
     return html;
 };
+
