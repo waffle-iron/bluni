@@ -9,45 +9,25 @@ Bl.cerca.render = (function ()
     Bl.cerca.appendHtml();
 
 
-    $('#btn-back-cerca').click(function () {
+    $('#btn-back-cerca').click(function () 
+    {
         Bl.ProvaLista.render();
-
+    });
     
     $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "10%"}, "200");
     //$("#logo").animate({ "width": "40%"}, "slow");
     
-    $('#search-title-book').keyup(function(event)
-    {
-        var except = [" ", 'Backspace', 'Enter'];
-        var valore = $("#search-title-book").val();
-        var length = valore.length;
-        
-        if(length === 1 && valore === " ")
-        {
-            $("#search-title-book").val('');
-            return;
-        }
-        
-        if(event.key !== "Backspace" || length === 0)
-        {
-            if(except.indexOf(event.key) >= 0)
-            {
-                return;
-            }
-        }
-        console.log("sono qui "+event.key );
-        //Bl.cerca.search();
-    });
 
-    $('#btn-search-cerca').click(function () {
+    $('#btn-search-cerca').click(function () 
+    {
         var titolo = $('#search-title-book').val();
         var facolta = $('#search-faculty').val();
         
         if ($.isEmptyObject(titolo))
-    {
-        alert("[ERRORE] inserire titolo");
-        return false;
-    }
+        {
+            alert("[ERRORE] inserire titolo");
+            return false;
+        }
     
         var param = {};
         param['title'] = titolo;
