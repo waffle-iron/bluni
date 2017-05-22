@@ -119,5 +119,3 @@ Bl.cerca.search =(function(param)
     });
 }        
 );
-
-    
