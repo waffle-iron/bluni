@@ -1,12 +1,17 @@
-/* global BlApp, Bl */
+/* global BlApp, Bl, titolo */
 
 Bl.cerca = {};
 
-Bl.cerca.render = (function()
+Bl.cerca.render = (function ()
 {
     $('#body-page').empty();
-    
+
     Bl.cerca.appendHtml();
+
+
+    $('#btn-back-cerca').click(function () {
+        Bl.ProvaLista.render();
+
     
     $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "40%"}, "slow");
     //$("#logo").animate({ "width": "40%"}, "slow");
@@ -33,20 +38,28 @@ Bl.cerca.render = (function()
         console.log("sono qui "+event.key );
         //Bl.cerca.search();
     });
+
+    $('#btn-search-cerca').click(function () {
+        var titolo = $('#search-title-book').val();
+        var facolta = $('#search-faculty').val();
+        
+        if ($.isEmptyObject(titolo))
+    {
+        alert("[ERRORE] inserire titolo");
+        return false;
+    }
     
-    
-    $('#btn-back-cerca').click(function(){
-        Bl.main.render();
+        var param = {};
+        param['title'] = titolo;
+        param['faculty'] = facolta;
+        
+        Bl.cerca.search(param);
     });
 
-    $('#btn-search-cerca').click(function(){
-        Bl.cerca.search();
-    });
-    
     $("#body-page").trigger("create");
 });
 
-Bl.cerca.appendHtml = (function()
+Bl.cerca.appendHtml = (function ()
 {
     $("#body-page").append('<div id="logo">Blunì</div> <hr>');
     $("#body-page").append('<h2 id="title-page-search">Cerca</h2>');
@@ -56,7 +69,6 @@ Bl.cerca.appendHtml = (function()
     $("#body-page").append(BlApp.inputText.html("search-title-book", "text", "Titolo del libro"));
     $("#body-page").append('</div>');
     
-    
     var html = '<label id="text-faculty" >Facolta</label>\
                 <select id="search-faculty">\n\
                     <option selected>Tutte le facoltà</option>\n\
@@ -65,37 +77,34 @@ Bl.cerca.appendHtml = (function()
                     <option>Letteratura</option>\n\
                 </select>';
     $("#body-page").append(html);
-    
+
     $("#body-page").append('<a id="btn-back-cerca" class="btn btn-default">Indietro</a>');
-    $("#body-page").append('<a id="btn-search-cerca" class="btn btn-default">Cerca</a>');
+    $("#body-page").append('<a id="btn-search-cerca" class="btn btn-default" >Cerca</a>');
 });
 
-Bl.cerca.search= (function()
+Bl.cerca.search =(function(param)
 {
-    
-    var tito = $('#search-title-book').val();
-    var titolo = "title="+tito;
-    
-    if ($.isEmptyObject(titolo))
-    {
-        alert("[ERRORE] inserire titolo");
-        return false;
-    }
     var pathParts = window.location.href.split("/");
-    var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
+    var root = pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
     
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: root+"/src/main/connect/lista.php",
-        data: titolo,
+        data: {param: JSON.stringify(param)},
         dataType: "json",
 
         success: function(msg)
         {
             if(msg !== "0")
             {
-                console.log(JSON.stringify(msg));
-                //Bl.lista.render();
+                if($.isEmptyObject(msg))
+                {
+                    alert("nessun risultato trovato");
+                }
+                
+                var libri = JSON.stringify(msg);
+                console.log(libri);
+                Bl.lista.render(msg);
             }	
             else
             {
@@ -104,15 +113,11 @@ Bl.cerca.search= (function()
         },
         error: function()
         {
-            alert("no");
+            alert("ERRORE connessione");
             return false;
         }
     });
-    
-    
-    }
-       
-            
+}        
 );
 
     

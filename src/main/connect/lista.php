@@ -1,18 +1,23 @@
 <?php
-
-if(isset($_POST['title']))
+//header("Content-Type: application/json; charset=UTF-8");
+if(isset($_GET['param']))
 {
-    $titolo = $_POST['title'];
-
+    $obj = json_decode($_GET['param'], false);
+        
     include "../connect/db_connect.php";
-
-    $sql="  SELECT *
-            FROM unibg_books 
-            WHERE 
-            title like '%$titolo%'"; 
-
+    
+    $sql=" SELECT *
+           FROM unibg_books 
+           WHERE 
+           title LIKE '%$obj->title%'";
+    
+    if($obj->faculty != "Tutte le facoltà")
+    { 
+        $sql = $sql."AND faculty = '$obj->faculty'";
+    }
+    
     $res = mysqli_query($conn, $sql);
-
+    
     if(mysqli_num_rows($res) > 0)
     {
         $out = array();
@@ -30,7 +35,5 @@ if(isset($_POST['title']))
 }
 else
 {
-    echo "[ERRORE] dati non inseriti correttamente";
+    echo "[ERRORE] parametri non passati correttamente ".$_GET['param'];
 }
-
-	
