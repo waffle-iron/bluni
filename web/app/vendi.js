@@ -7,8 +7,6 @@ Bl.vendi.render = (function()
 {
    $("#body-page").empty();
    
-   Bl.idUser = Bl.user.getIdUser();
-   
    Bl.vendi.appendHtml();
    
    $("#btn-sale-back").click(function()
@@ -19,7 +17,7 @@ Bl.vendi.render = (function()
    $('#btn-sale-next').click(function()
    {
        var param = {};
-       param['id_user'] = Bl.idUser;
+       param['username'] = Bl.user.getUsername();
        param['title'] = $("#sale-title").val();
        param['author'] = $("#sale-author").val();
        param['price'] = $("#sale-price").val();

@@ -16,6 +16,10 @@ Bl.configuration.load=(function()
         Bl.menu.render();
         Bl.configuration.isRegistered = true;
     }
+    else
+    {
+        $("#header-user").html("Blunì");
+    }
 });
 
 Bl.configuration.logout = (function()
@@ -23,7 +27,7 @@ Bl.configuration.logout = (function()
     Bl.configuration.removeCookie("bluni-cookie");
     Bl.configuration.isRegistered = false;
     
-    $('#header-user').empty();
+    $("#header-user").html("Blunì");
     $('#bl-menu').empty();
 
     Bl.main.render();

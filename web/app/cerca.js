@@ -8,8 +8,15 @@ Bl.cerca.render = (function ()
 
     Bl.cerca.appendHtml();
 
+
     $('#btn-back-cerca').click(function () {
         Bl.ProvaLista.render();
+
+    
+    $("#logo").animate({"font-size": "35px", "width": "40%"}, "slow");
+    //$("#logo").animate({ "width": "40%"}, "slow");
+    
+    
     });
 
     $('#btn-search-cerca').click(function () {
@@ -34,8 +41,8 @@ Bl.cerca.render = (function ()
 
 Bl.cerca.appendHtml = (function ()
 {
-    $("#body-page").append('<div id="logo">Blunì</div><hr>');
-    $("#body-page").append('<h1 id="title-page-search">Cerca</h1>');
+    $("#body-page").append('<div id="logo">Blunì</div> <hr>');
+    $("#body-page").append('<h2 id="title-page-search">Cerca</h2>');
     $("#body-page").append('<h4 id="subTitle-page-search">Inserisci i dati del libro</h4>');
 
     $("#body-page").append('<div class="form-group"><label id="text-search-title"> Titolo</label>');
@@ -92,5 +99,6 @@ Bl.cerca.search =(function(param)
     });
 }        
 );
+
 
     
