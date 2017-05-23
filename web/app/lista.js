@@ -2,7 +2,7 @@
 
 Bl.lista = {};
 
-Bl.lista.render = (function(list)
+Bl.lista.render = (function(list, titolo)
 {   
     //var description = list[0].description; per prendere un valore dal json array
     Bl.lista.books = list;
@@ -32,20 +32,22 @@ Bl.lista.render = (function(list)
 
 Bl.lista.appendHtml = (function(list)
 {
-    
     $("#body-page").append('<h1 id="title-page-lista">Lista</h1>');
-    $("#body-page").append('<h3 id="title-page-lista">Trova il tuo libro:</h3><br>');
+    $("#body-page").append('<h3 id="title-page-lista">Trova il tuo libro:</h3>');
+    $("#body-page").append('<h6 id="result-page-lista">Trova il tuo libro:</h6><br>');
     
     var i = 0;
     
     jQuery.each(list,function(key,val)
     {
-        $("#body-page").append(BlApp.element.html(val.username, val.title, val.description, val.date, val.price));
-        
+        var data = convertDate(val.date);
+        function convertDate(data) {
+        var date = new Date(data);
+        return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+}
+        $("#body-page").append(BlApp.element.html(val.username, val.title, val.description, data, val.price));
         i = key;
     });
-    
-    console.log(i);
     
     if(i<2)
     {
