@@ -52,7 +52,7 @@ Bl.lista.appendHtml = (function(list, titolo)
         var date = new Date(data);
         return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
 }
-        $("#body-page").append(BlApp.element.html(val.username, val.title, val.description, data, val.price));
+        $("#body-page").append(BlApp.element.html(val.username, val.faculty, val.title, val.description, data, val.price));
         i = key;
     });
     

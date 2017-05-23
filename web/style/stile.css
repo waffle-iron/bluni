@@ -334,6 +334,11 @@ html,body, div[data-role ="page"]
    width: 100%; 
 }
 
+.faculty
+{
+    text-align: right;
+}
+
 .username
 {
     text-align: left;
