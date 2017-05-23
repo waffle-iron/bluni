@@ -4,11 +4,12 @@ Bl.lista = {};
 
 Bl.lista.render = (function(list, titolo)
 {   
+    Bl.lista.length = list.length;
     //var description = list[0].description; per prendere un valore dal json array
     Bl.lista.books = list;
     $('#body-page').empty();
 
-    Bl.lista.appendHtml(list);
+    Bl.lista.appendHtml(list, titolo);
    
     $('.el-content').click(function()
     {
@@ -30,11 +31,17 @@ Bl.lista.render = (function(list, titolo)
     $("#body-page").trigger("create");
 });
 
-Bl.lista.appendHtml = (function(list)
+Bl.lista.appendHtml = (function(list, titolo)
 {
     $("#body-page").append('<h1 id="title-page-lista">Lista</h1>');
     $("#body-page").append('<h3 id="title-page-lista">Trova il tuo libro:</h3>');
-    $("#body-page").append('<h6 id="result-page-lista">Trova il tuo libro:</h6><br>');
+    
+    if(Bl.lista.length>0)
+    {
+        $("#body-page").append('<h6 id="result-page-lista">Per "'+titolo+'" sono stati trovati '+Bl.lista.length+' libri:</h6><br>');
+    }
+    else
+        $("#body-page").append('<h6 id="noresult-page-lista">Non sono stati trovati risultati per '+titolo+'.</h6><br>');
     
     var i = 0;
     

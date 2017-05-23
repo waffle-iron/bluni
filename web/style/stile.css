@@ -289,6 +289,11 @@ html,body, div[data-role ="page"]
     float: left;
 }
 
+#result-page-lista
+{
+    color: #BBBFBD;
+}
+
 /*  ACCOUNT */
 .acn-bold-text
 {
