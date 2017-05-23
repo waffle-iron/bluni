@@ -223,13 +223,18 @@ html,body, div[data-role ="page"]
 
 #btn-back-cerca
 {
-    margin-top: 50px;
+    position: fixed;
+    bottom: 20px;
+    float:right;
+    left:30px;
 }
 
 #btn-search-cerca
 {
-    margin-top: 50px;
+    position: fixed;
+    bottom: 20px;
     float:right;
+    right:30px;
 }
 
 /*  FINE CERCA   */
@@ -264,7 +269,7 @@ html,body, div[data-role ="page"]
 #btn-sale-next
 {
     margin-top: 40px;
-    float:right;
+    float: right;
 }
 /* fine VENDITA */
 
@@ -278,6 +283,12 @@ html,body, div[data-role ="page"]
     left:30px;
 }
 
+#btn-backplus-lista
+{
+    margin-top: 40px; 
+    float: left;
+}
+
 /*  ACCOUNT */
 .acn-bold-text
 {
@@ -285,6 +296,14 @@ html,body, div[data-role ="page"]
 }
 
 #acn-btn-back
+{
+    position: fixed;
+    bottom: 20px;
+    float:right;
+    left:30px;
+}
+    
+#acnExt-btn-back
 {
     position: fixed;
     bottom: 20px;

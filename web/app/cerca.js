@@ -11,7 +11,7 @@ Bl.cerca.render = (function ()
 
     $('#btn-back-cerca').click(function () 
     {
-        Bl.ProvaLista.render();
+        Bl.main.render();
     });
     
     $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "10%"}, "200");
@@ -84,7 +84,7 @@ Bl.cerca.search =(function(param)
                 
                 var libri = JSON.stringify(msg);
                 console.log(libri);
-                Bl.lista.render(msg);
+                Bl.lista.render(msg,titolo);
             }	
             else
             {
