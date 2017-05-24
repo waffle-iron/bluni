@@ -2,12 +2,13 @@
    
     if(isset($_POST['param']))
     {
-        $obj = json_decode($_POST['param'], false);
-
         include '../connect/db_connect.php';
         
+        $obj = json_decode($_POST['param'], false);
+        $psw = md5($obj->psw);
+        
         $sql = "INSERT INTO unibg_users_login (username , password) "
-                . "VALUES ('$obj->user', '$obj->psw');";
+                . "VALUES ('$obj->user', '$psw');";
         
         $sql2 = "INSERT INTO unibg_users (username ,email, phone_number, faculty) "
                 . "VALUES ('$obj->user', '$obj->email', '$obj->phone', '$obj->faculty')";
