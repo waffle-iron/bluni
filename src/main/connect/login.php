@@ -19,7 +19,6 @@ if(isset($_GET['param']))
     if (mysqli_num_rows($res) > 0) 
     {
         $out = mysqli_fetch_assoc($res);
-        unset($out['password']);
         echo json_encode($out);
     }
     else

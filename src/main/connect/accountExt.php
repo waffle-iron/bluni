@@ -6,10 +6,10 @@ if(isset($_GET['param']))
         
     include "../connect/db_connect.php";
     
-    $sql=" SELECT *
-           FROM unibg_users 
-           WHERE 
-           BINARY username ='$obj->user'";
+    $sql=" SELECT*
+            FROM unibg_users
+            WHERE
+                username = '$obj->user'"; 
 
     $res = mysqli_query($conn, $sql);
     

@@ -13,9 +13,8 @@ Bl.lista.render = (function(list, titolo)
    
     $('.el-content').click(function()
     {
-       var username = $(this).find('.username').text(); //mi serve per presndere username dal content cliccato
-        console.log(username);
-        Bl.lista.renderAcc(username);   //renderizza pagina venditore
+        var username = $(this).find('.username').text();
+        Bl.lista.renderExternalAccount(username);
     });
 
     $('#btn-back-lista').click(function()
@@ -59,21 +58,9 @@ Bl.lista.appendHtml = (function(list, titolo)
         $("#body-page").append('<a id="btn-backplus-lista" class="btn btn-default">Indietro</a>');
 });
 
-Bl.lista.renderAcc = function(username)
+Bl.lista.appendHtmlAccEx = function (user)
 {
     $("#body-page").empty();
-    //Bl.lista.ext(); //ricerca altri libri che il venditore mette in vendita
-    Bl.lista.appendHtmlAcc(username); //render account venditore
-    
-    $('#acnExt-btn-back').click(function()
-    {
-        Bl.lista.render(Bl.lista.books);
-    });
-};
-
-Bl.lista.appendHtmlAcc = function (username)
-{
-    var user = Bl.user.getConfig();
     
     $('#body-page').append('<h3>Il profilo di '+user.username+':</h3>');
     $("#body-page").append('<p><span class="acnExt-bold-text">Facoltà: </span>'+user.faculty+'</p>');
@@ -91,11 +78,16 @@ Bl.lista.appendHtmlAcc = function (username)
     
     $("#body-page").append('<a id="acnExt-btn-back"  class="btn btn-default">Indietro</a>');
     
+
+    $('#acnExt-btn-back').click(function()
+    {
+        Bl.lista.render(Bl.lista.books);
+    });
 };
 
 
 
-Bl.lista.accList=(function(user)  //prende informazioni 
+Bl.lista.renderExternalAccount = (function(user)  //prende informazioni 
 {
     var pathParts = window.location.href.split("/");
     var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
@@ -103,25 +95,21 @@ Bl.lista.accList=(function(user)  //prende informazioni
     var param = {};
     param['user'] = user;
     
-    
-    
     $.ajax({
         type: "GET",
         url: root+"/src/main/connect/accountExt.php",
         data: {param: JSON.stringify(param)},
         dataType: "json",
 
-        success: function(msg)
+        success: function(userConf)
         {
-            if(msg !== "0")
+            if($.isEmptyObject(userConf))
             {
-                Bl.configuration.set(JSON.stringify(msg));
-                //Bl.configuration.load();
-                Bl.lista.renderAcc();
-            }	
+                alert("[ERRORE] dati utente esterno nulli");
+            }
             else
             {
-                alert("msg: credenziali non corrette");
+                Bl.lista.appendHtmlAccEx(userConf);
             }
         },
         error: function()
