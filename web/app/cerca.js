@@ -8,16 +8,17 @@ Bl.cerca.render = (function ()
 
     Bl.cerca.appendHtml();
 
+    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "80px"}, "200");
+    //$("#logo").animate({ "width": "40%"}, "slow");
 
     $('#btn-back-cerca').click(function () 
     {
-        Bl.main.render();
+        $("#logo").animate({ "margin-top": "18%", "font-size": "60px", "width": "100%"}, "200",function()
+        {
+            Bl.main.render();
+        });
     });
     
-    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "10%"}, "200");
-    //$("#logo").animate({ "width": "40%"}, "slow");
-    
-
     $('#btn-search-cerca').click(function () 
     {
         var titolo = $('#search-title-book').val();
