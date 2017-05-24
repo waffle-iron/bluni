@@ -8,16 +8,17 @@ Bl.cerca.render = (function ()
 
     Bl.cerca.appendHtml();
 
+    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "80px"}, "200");
+    //$("#logo").animate({ "width": "40%"}, "slow");
 
     $('#btn-back-cerca').click(function () 
     {
-        Bl.main.render();
+        $("#logo").animate({ "margin-top": "18%", "font-size": "60px", "width": "100%"}, "200",function()
+        {
+            Bl.main.render();
+        });
     });
     
-    $("#logo").animate({ "margin-top": "10px", "font-size": "35px", "width": "10%"}, "200");
-    //$("#logo").animate({ "width": "40%"}, "slow");
-    
-
     $('#btn-search-cerca').click(function () 
     {
         var titolo = $('#search-title-book').val();
@@ -75,23 +76,15 @@ Bl.cerca.search =(function(param)
 
         success: function(msg)
         {
-            if(msg !== "0")
+            if($.isEmptyObject(msg))
+
             {
-                if($.isEmptyObject(msg))
-                {
-                    alert("nessun risultato trovato");
-                }
-                
-                var libri = JSON.stringify(msg);
-                console.log(libri);
-                console.log(param.title);
-                
-                Bl.lista.render(msg,param.title);
-            }	
-            else
-            {
-                alert("msg: titolo non trovato");
+                alert("nessun risultato trovato");
             }
+
+            var libri = JSON.stringify(msg);
+            console.log(libri);
+            Bl.lista.render(msg);
         },
         error: function()
         {

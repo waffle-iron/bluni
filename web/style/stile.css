@@ -132,7 +132,7 @@ html,body, div[data-role ="page"]
 
 .info-txt-user
 {
-    margin-top:40px;
+    margin-top:20px;
 }
 
 /*casella username */
@@ -152,28 +152,32 @@ html,body, div[data-role ="page"]
 }
 
 /*pulsante di login*/
+#input-username, #input-password
+{
+    color: #00ABC7;
+}
+
 #btn-access
 {
-    margin-top: 50px;
+    margin-top: 30px;
     width:100%;
+    color: #00ABC7;
+    border-color: #00ABC7;
     color: #00ABC7;
 }
 
 #signin
 {
-    position: fixed;
-    bottom: 20px;
-    right:30px;
-    margin-bottom: 4px;
+    float:right;
+    margin-top: 45px;
+    border-color: #00ABC7;
     color: #00ABC7;
 }
 
 #btn-back
 {
-    position: fixed;
-    bottom: 20px;
-    float:right;
-    left:30px;
+    margin-top: 40px;
+    border-color: #00ABC7;
     color: #00ABC7;
 }
 
@@ -201,11 +205,15 @@ html,body, div[data-role ="page"]
 {
     margin-top: 20px;
     float:right;
+    border-color: #00ABC7;
+    color: #00ABC7;
 }
 #signin-back
 {
     float: left;
     margin-top: 20px;
+    border-color: #00ABC7;
+    color: #00ABC7;
 }
 /*  FINE SIGNIN */
 
