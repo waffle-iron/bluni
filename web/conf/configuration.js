@@ -26,10 +26,11 @@ Bl.configuration.logout = (function()
 {
     Bl.configuration.removeCookie("bluni-cookie");
     Bl.configuration.isRegistered = false;
+    Bl.user.unset();
     
     $("#header-user").html("Blunì");
     $('#bl-menu').empty();
-
+    
     Bl.main.render();
 });
 

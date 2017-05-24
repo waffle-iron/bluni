@@ -9,7 +9,8 @@ if(isset($_GET['param']))
     $sql=" SELECT *
            FROM unibg_books 
            WHERE 
-           title LIKE '%$obj->title%'";
+           title LIKE '%$obj->title%'
+           ORDER BY '$obj->date' ASC";
     
     if($obj->faculty != "Tutte le facoltà")
     { 
@@ -27,6 +28,7 @@ if(isset($_GET['param']))
         }
         
         echo json_encode($out);
+        
     }
     else
     {

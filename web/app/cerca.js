@@ -77,13 +77,14 @@ Bl.cerca.search =(function(param)
         success: function(msg)
         {
             if($.isEmptyObject(msg))
+
             {
                 alert("nessun risultato trovato");
             }
 
             var libri = JSON.stringify(msg);
             console.log(libri);
-            Bl.lista.render(msg);
+            Bl.lista.render(msg,param.title);
         },
         error: function()
         {
