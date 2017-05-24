@@ -84,7 +84,7 @@ Bl.cerca.search =(function(param)
 
             var libri = JSON.stringify(msg);
             console.log(libri);
-            Bl.lista.render(msg);
+            Bl.lista.render(msg,param.title);
         },
         error: function()
         {

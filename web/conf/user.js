@@ -36,3 +36,8 @@ Bl.user.getConfig = function()
 {
     return Bl.user.config;
 };
+
+Bl.user.unset = function ()
+{
+    Bl.user.config = null;
+};

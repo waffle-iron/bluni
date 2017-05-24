@@ -43,20 +43,15 @@ Bl.lista.appendHtml = (function(list, titolo)
     else
         $("#body-page").append('<h6 id="noresult-page-lista">Non sono stati trovati risultati per '+titolo+'.</h6><br>');
     
-    var i = 0;
-    
     jQuery.each(list,function(key,val)
     {
-        var data = convertDate(val.date);
-        function convertDate(data) {
-        var date = new Date(data);
-        return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
-}
-        $("#body-page").append(BlApp.element.html(val.username, val.faculty, val.title, val.description, data, val.price));
-        i = key;
+        var data = Bl.lista.convertData(val.date);
+        
+        $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
+                                val.title, val.description, data, val.price));
     });
     
-    if(i<2)
+    if(list.length<2)
     {
         $("#body-page").append('<a id="btn-back-lista" class="btn btn-default">Indietro</a>');
     }
@@ -176,4 +171,8 @@ Bl.lista.search =(function(param)
 }        
 );
 
-
+Bl.lista.convertData = function(data)
+{
+    var date = new Date(data);
+    return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+};
