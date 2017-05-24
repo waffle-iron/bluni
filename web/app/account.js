@@ -31,7 +31,7 @@ Bl.account.appendHtml = function ()
     $("#body-page").append('<a id="acn-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
     
 };
-
+/*
 Bl.account.renderExt = function(Username)
 {
     $("#body-page").empty();
@@ -97,3 +97,4 @@ Bl.account.ext=(function(user)
     });
     
 });
+*/

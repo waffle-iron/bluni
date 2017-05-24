@@ -423,33 +423,7 @@ html,body, div[data-role ="page"]
     left:0px !important;
 }
 
-/* INSERISCI OBBIETTIVO */
-#title-new-obj
+.ui-popup 
 {
-    text-align: center;
-    font-weight: bold;
-    padding-bottom:50px;
-}
-
-#description-obj
-{
-    padding-bottom:40px;
-    background-color: read;
-} 
-
-#add
-{
-    float: right;
-    margin-top: 30px;
-}
-
-#back
-{
-    float: left;
-    margin-top: 30px;
-}
-
-#bt
-{
-    float:right;
+    background-color: #f5f5f5 !important;
 }

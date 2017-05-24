@@ -34,7 +34,8 @@ Bl.vendi.render = (function()
        }
        else
        {
-           alert("Completare i campi obbligatori");
+            $('#bl-popup').html("Completare tutti i campi obbligatori");
+            $('#bl-popup').popup('open');
        }
    });
    

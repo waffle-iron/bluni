@@ -79,12 +79,14 @@ Bl.login.start=(function(user, psw)
             }	
             else
             {
-                alert("msg: credenziali non corrette");
+                $('#bl-popup').html("credenziali non corrette");
+                $('#bl-popup').popup('open');
             }
         },
         error: function()
         {
-            alert("ERRORE connessione");
+            $('#bl-popup').html("[ERRORE] Connessione al server");
+            $('#bl-popup').popup('open');
             return false;
         }
     });

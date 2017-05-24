@@ -26,7 +26,8 @@ Bl.cerca.render = (function ()
         
         if ($.isEmptyObject(titolo))
         {
-            alert("[ERRORE] inserire titolo");
+            $('#bl-popup').html("Inserisci il titolo");
+            $('#bl-popup').popup('open');
             return false;
         }
     
@@ -79,7 +80,8 @@ Bl.cerca.search =(function(param)
             if($.isEmptyObject(msg))
 
             {
-                alert("nessun risultato trovato");
+                $('#bl-popup').html("nessun risultato trovato");
+                $('#bl-popup').popup('open');
             }
 
             var libri = JSON.stringify(msg);
@@ -88,7 +90,8 @@ Bl.cerca.search =(function(param)
         },
         error: function()
         {
-            alert("ERRORE connessione");
+            $('#bl-popup').html("[ERRORE] Connessione al server");
+            $('#bl-popup').popup('open');
             return false;
         }
     });
