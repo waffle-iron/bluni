@@ -62,14 +62,21 @@ Bl.lista.appendHtmlAccEx = function (user)
 {
     $("#body-page").empty();
     
-    $('#body-page').append('<h3>Il profilo di '+user.username+':</h3>');
-    $("#body-page").append('<p><span class="acnExt-bold-text">Facoltà: </span>'+user.faculty+'</p>');
-    $("#body-page").append('<p><span class="acnExt-bold-text">Email: </span>'+user.email+'</p>');
-    $("#body-page").append('<p><span class="acnExt-bold-text">Numero di telefono: </span>'+user.phone_number+'</p>');
+    $('#body-page').append('<h3>Il profilo di '+user[0].username+':</h3>');
+    $("#body-page").append('<p><span class="acnExt-bold-text">Facoltà: </span>'+user[0].faculty+'</p>');
+    $("#body-page").append('<p><span class="acnExt-bold-text">Email: </span>'+user[0].email+'</p>');
+    $("#body-page").append('<p><span class="acnExt-bold-text">Numero di telefono: </span>'+user[0].phone_number+'</p>');
     $('#body-page').append('<hr>');
     
     $('#body-page').append('<h3>I suoi annunci</h3>');
     
+    jQuery.each(user,function(key,val)
+    {
+        var data = Bl.lista.convertData(val.date);
+        
+        $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
+                                val.title, val.description, data, val.price));
+    });
     //jQuery.each(accList,function(key,val)
     //{
       //  $("#body-page").append(BlApp.element.html(val.username, val.title, val.description, val.date, val.price));
@@ -97,7 +104,7 @@ Bl.lista.renderExternalAccount = (function(user)  //prende informazioni
     
     $.ajax({
         type: "GET",
-        url: root+"/src/main/connect/accountExt.php",
+        url: root+"/src/main/connect/userBooks.php",
         data: {param: JSON.stringify(param)},
         dataType: "json",
 
@@ -120,44 +127,6 @@ Bl.lista.renderExternalAccount = (function(user)  //prende informazioni
     });
     
 });
-
-Bl.lista.search =(function(param)
-{
-    var pathParts = window.location.href.split("/");
-    var root = pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
-    
-    $.ajax({
-        type: "GET",
-        url: root+"/src/main/connect/listaExt.php",
-        data: {param: JSON.stringify(param)},
-        dataType: "json",
-
-        success: function(msg)
-        {
-            if(msg !== "0")
-            {
-                if($.isEmptyObject(msg))
-                {
-                    alert("nessun risultato trovato");
-                }
-                
-                var libri = JSON.stringify(msg);
-                console.log(libri);
-                Bl.lista.render(msg);
-            }	
-            else
-            {
-                alert("msg: titolo non trovato");
-            }
-        },
-        error: function()
-        {
-            alert("ERRORE connessione");
-            return false;
-        }
-    });
-}        
-);
 
 Bl.lista.convertData = function(data)
 {
