@@ -76,23 +76,15 @@ Bl.cerca.search =(function(param)
 
         success: function(msg)
         {
-            if(msg !== "0")
+            if($.isEmptyObject(msg))
+
             {
-                if($.isEmptyObject(msg))
-                {
-                    alert("nessun risultato trovato");
-                }
-                
-                var libri = JSON.stringify(msg);
-                console.log(libri);
-                console.log(param.title);
-                
-                Bl.lista.render(msg,param.title);
-            }	
-            else
-            {
-                alert("msg: titolo non trovato");
+                alert("nessun risultato trovato");
             }
+
+            var libri = JSON.stringify(msg);
+            console.log(libri);
+            Bl.lista.render(msg);
         },
         error: function()
         {
