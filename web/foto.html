@@ -1,0 +1,78 @@
+
+<html>
+    <head>
+        <title>Blunì</title>
+        <meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+	<link rel="stylesheet" href="style/bootstrap.css" />
+        <link rel="stylesheet" href="style/stile.css" />
+
+	<!-- Lib CSS jQuery mobile -->
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" />
+	<!-- Lib jQuery -->
+	<script src="lib/jquery-2.2.1.js"></script>
+	<!-- Lib jQuery Mobile -->
+	<script src="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+	<!-- Lib Cookie -->
+	<script src="lib/jquery-cookie-master/src/jquery.cookie.js"></script>
+        
+        
+        <!-- Script -->
+        <script type="text/javascript" src="conf/configuration.js"></script> 
+        <script type="text/javascript" src="conf/blapp.js"></script> 
+        <script type="text/javascript" src="conf/user.js"></script> 
+        
+        <script type="text/javascript" src="app/login.js"></script> 
+        <script type="text/javascript" src="app/lista.js"></script> 
+        <script type="text/javascript" src="app/menu.js"></script> 
+        <script type="text/javascript" src="app/main.js"></script> 
+        <script type="text/javascript" src="app/cerca.js"></script>  
+        <script type="text/javascript" src="app/signin.js"></script>  
+        <script type="text/javascript" src="app/vendi.js"></script>   
+        <script type="text/javascript" src="app/account.js"></script>  
+        
+        <script type="text/javascript" src="app/test.js"></script>  
+        
+    </head>
+    
+    <body>
+        <div id="page" data-role="page" class="ui-responsive-panel">
+
+        <div id="header-page" data-role="header" class="headerPage"  data-theme="a" data-position="fixed">
+            <h1 id="bl-header-h1">
+                <span id="header-user"></span>
+            </h1>
+            <span id="bl-menu"></span>
+        </div>
+            
+        <div id="body-page" data-role="content" class="ui-content">
+            <!-- Java script code, use jquery library. -->
+
+<script type="text/javascript">
+    function showimagepreview(input) 
+    {
+      if (input.files && input.files[0]) 
+      {
+        var filerdr = new FileReader();
+        filerdr.onload = function(e) {
+            $('#imgDisplayarea').attr('src', e.target.result);
+        };
+        filerdr.readAsDataURL(input.files[0]);
+      }
+    }
+</script>
+
+<!-- HTML -->
+<form>
+    <div>
+        <input type="file" name="imgShow" id="imgShow" onchange="showimagepreview(this)" />
+    </div>
+    <img id="imgDisplayarea" height="200" width="200"/>
+</form>
+        </div>
+
+      </div>
+    </body>
+    
+</html>
