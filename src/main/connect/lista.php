@@ -30,7 +30,7 @@ if(isset($_GET['param']))
     }
     else
     {
-        echo false;
+        echo json_encode (json_decode ("{}"));
     }
 }
 else
