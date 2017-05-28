@@ -1,4 +1,6 @@
 
+/* global Blapp */
+
 var BlApp = {};
 
 BlApp.inputText = {};
@@ -35,6 +37,20 @@ BlApp.formGroup.html = function(label, id_input, type_input, placeholder_input)
                     '+BlApp.inputText.html(id_input, type_input, placeholder_input)+'\n\
                 </div>';
     return html;
+};
+
+BlApp.popupDialog = function(content)
+{
+   var html = "<h4>"+content+"</h4>";
+       html += '<a id="btn-back-popup" class="btn btn-default">Annulla</a>';
+       html += '<a id="btn-confirm-popup" class="btn btn-default">Conferma</a>';
+       
+   $('#bl-popup').html(html);
+   
+   $('#btn-back-popup').click(function()
+   {
+       $('#bl-popup').popup('close');
+   });
 };
 
 BlApp.convertData = function(data)

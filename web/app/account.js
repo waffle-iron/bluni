@@ -1,5 +1,5 @@
 
-/* global Bl */
+/* global Bl, BlApp */
 
 Bl.account = {};
 
@@ -14,7 +14,19 @@ Bl.account.render = function()
         Bl.menu.removeSelect();
         Bl.main.render();
     });
+    
+    $('.el-content').click(function()
+    {
+        var title = $(this).find('.el-title').text();
+        BlApp.popupDialog("Vuoi eliminare il libro di "+title+" dagli annunci?");
+        $('#bl-popup').popup('open');
         
+        $('#btn-confirm-popup').click(function()
+        {
+            console.log("eliminato");
+            $('#bl-popup').popup('close');
+        });
+    }); 
 };
 
 Bl.account.renderAccount = (function(user)  //prende informazioni 

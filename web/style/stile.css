@@ -328,7 +328,7 @@ il pulsante annulla non rimane fisso*/
 }
 /* fine ACCOUNT */
 
-/* element LIST */
+/* ELEMENT LIST */
 .el-content
 {
     margin-top: 20px;
@@ -362,8 +362,6 @@ il pulsante annulla non rimane fisso*/
     font-weight: bolder;
 }
 
-
-
 .el-description
 {
     text-align: left;
@@ -382,7 +380,16 @@ il pulsante annulla non rimane fisso*/
     color: green;
 }
 
+/* fine ELEMENT LIST */
 
+
+
+/* POPUP*/
+#btn-confirm-popup
+{
+    margin-left: 40px;
+    float:right;
+}
 
 /* HOME */
 #logout
