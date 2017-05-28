@@ -66,7 +66,6 @@ Bl.lista.renderExternalAccount = function (username)
     });
 };
 
-
 Bl.lista.convertData = function(data)
 {
     var date = new Date(data);

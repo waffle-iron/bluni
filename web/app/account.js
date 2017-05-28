@@ -7,8 +7,7 @@ Bl.account.render = function()
 {
     $("#body-page").empty();  
     
-    var user = Bl.user.getConfig();
-    Bl.account.renderAccount(user.username);
+    Bl.account.renderAccount(Bl.user.getConfig());
     
     $('#acn-btn-back').click(function()
     {
@@ -88,7 +87,7 @@ Bl.account.appendHtml = function (user)
     
     jQuery.each(user,function(key,val)
     {
-        var data = Bl.lista.convertData(val.date);
+        var data = Bl.account.convertData(val.date);
         
         $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
                                 val.title, val.description, data, val.price));
@@ -98,3 +97,8 @@ Bl.account.appendHtml = function (user)
     
 };
 
+Bl.account.convertData = function(data)
+{
+    var date = new Date(data);
+    return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+};
