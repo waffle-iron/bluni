@@ -71,7 +71,7 @@ Bl.account.renderAccount = (function(user)  //prende informazioni
 Bl.account.appendHtml = function (user)
 {
     var myAccount = false;
-    if(user[0].username === Bl.user.getUsername())
+    if(Bl.configuration.isMyAccount(user[0].username))
     {
         myAccount = true;
     }

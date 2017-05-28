@@ -56,13 +56,13 @@ Bl.lista.renderExternalAccount = function (username)
 {
     $("#body-page").empty();
     
-    if(username !== Bl.user.getUsername())
-    {
-       Bl.account.renderAccount(username);
-    }
-    else
+    if(Bl.configuration.isMyAccount(username))
     {
         Bl.account.render();
+    }
+    else
+    { 
+       Bl.account.renderAccount(username);
     }
     
     $('#acn-btn-back').click(function()

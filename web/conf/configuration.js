@@ -60,3 +60,15 @@ Bl.configuration.create = function(id, user, email, phone, faculty)
   
   return conf;
 };
+
+Bl.configuration.isMyAccount = function(username)
+{
+    if(Bl.configuration.isRegistered && username === Bl.user.getUsername())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+};
