@@ -103,7 +103,8 @@ Bl.vendi.publish= (function(param)
         {
             if(msg==="1")
             {
-                alert("Annuncio pubblicato correttamente");
+                $('#bl-popup').html("Annuncio pubblicato correttamente");
+                $('#bl-popup').popup('open');
                 Bl.main.render();
             }	
             else
@@ -112,8 +113,9 @@ Bl.vendi.publish= (function(param)
             }
         },
         error: function()
-        {
-            alert("Errore pubblicazione");
+    {
+            $('#bl-popup').html("Errore pubblicazione");
+            $('#bl-popup').popup('open');
             return false;
         }
     });

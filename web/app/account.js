@@ -1,11 +1,14 @@
 
+/* global Bl */
+
 Bl.account = {};
 
 Bl.account.render = function()
 {
-    $("#body-page").empty();
+    $("#body-page").empty();  
     
-    Bl.account.appendHtml();
+    var user = Bl.user.getConfig();
+    Bl.account.renderAccount(user.username);
     
     $('#acn-btn-back').click(function()
     {
@@ -15,53 +18,7 @@ Bl.account.render = function()
         
 };
 
-Bl.account.appendHtml = function ()
-{
-    var user = Bl.user.getConfig();
-    
-    $('#body-page').append('<h3>Il mio profilo:</h3>');
-    $("#body-page").append('<p><span class="acn-bold-text">Username: </span>'+user.username+'</p>');
-    $("#body-page").append('<p><span class="acn-bold-text">Facoltà: </span>'+user.faculty+'</p>');
-    $("#body-page").append('<p><span class="acn-bold-text">Email: </span>'+user.email+'</p>');
-    $("#body-page").append('<p><span class="acn-bold-text">Numero di telefono: </span>'+user.phone_number+'</p>');
-    $('#body-page').append('<hr>');
-    
-    $('#body-page').append('<h3>I miei annunci</h3>');
-    
-    $("#body-page").append('<a id="acn-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
-    
-};
-/*
-Bl.account.renderExt = function(Username)
-{
-    $("#body-page").empty();
-    Bl.account.ext(Username);
-    Bl.account.appendHtmlExt();
-    
-    $('#acnExt-btn-back').click(function()
-    {
-        Bl.menu.removeSelect();
-        Bl.main.render();
-    });
-};
-
-Bl.account.appendHtmlExt = function ()
-{
-    var user = Bl.user.getConfig();
-    
-    $('#body-page').append('<h3>Il profilo di '+user.username+':</h3>');
-    $("#body-page").append('<p><span class="acnExt-bold-text">Facoltà: </span>'+user.faculty+'</p>');
-    $("#body-page").append('<p><span class="acnExt-bold-text">Email: </span>'+user.email+'</p>');
-    $("#body-page").append('<p><span class="acnExt-bold-text">Numero di telefono: </span>'+user.phone_number+'</p>');
-    $('#body-page').append('<hr>');
-    
-    $('#body-page').append('<h3>I suoi annunci</h3>');
-    
-    $("#body-page").append('<a id="acnExt-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
-    
-};
-
-Bl.account.ext=(function(user)
+Bl.account.renderAccount = (function(user)  //prende informazioni 
 {
     var pathParts = window.location.href.split("/");
     var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
@@ -69,24 +26,22 @@ Bl.account.ext=(function(user)
     var param = {};
     param['user'] = user;
     
-    
     $.ajax({
         type: "GET",
-        url: root+"/src/main/connect/accountExt.php",
+        url: root+"/src/main/connect/userBooks.php",
         data: {param: JSON.stringify(param)},
+        async:false,
         dataType: "json",
 
-        success: function(msg)
+        success: function(userConf)
         {
-            if(msg !== "0")
+            if($.isEmptyObject(userConf))
             {
-                Bl.configuration.set(JSON.stringify(msg));
-                Bl.configuration.load();
-                Bl.account.renderExt();
-            }	
+                alert("[ERRORE] dati utente esterno nulli");
+            }
             else
             {
-                alert("msg: credenziali non corrette");
+                Bl.account.appendHtml(userConf);
             }
         },
         error: function()
@@ -97,4 +52,49 @@ Bl.account.ext=(function(user)
     });
     
 });
-*/
+
+Bl.account.appendHtml = function (user)
+{
+    var myAccount = false;
+    if(user[0].username === Bl.user.getUsername())
+    {
+        myAccount = true;
+    }
+    
+    if(myAccount)
+    {
+        $('#body-page').append('<h3>Il mio profilo:</h3>');
+    }
+    else
+    {
+        $('#body-page').append('<h3>Profilo di '+user[0].username+':</h3>');
+    }
+        
+    $("#body-page").append('<p><span class="acn-bold-text">Username: </span>'+user[0].username+'</p>');
+    $("#body-page").append('<p><span class="acn-bold-text">Facoltà: </span>'+user[0].faculty+'</p>');
+    $("#body-page").append('<p><span class="acn-bold-text">Email: </span>'+user[0].email+'</p>');
+    $("#body-page").append('<p><span class="acn-bold-text">Numero di telefono: </span>'+user[0].phone_number+'</p>');
+    $('#body-page').append('<hr>');
+    
+    if(myAccount)
+    {
+        $('#body-page').append('<h3>I miei annunci</h3>');
+    }
+    else
+    {
+        $('#body-page').append('<h3>I suoi annunci</h3>');
+    }
+    
+    
+    jQuery.each(user,function(key,val)
+    {
+        var data = Bl.lista.convertData(val.date);
+        
+        $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
+                                val.title, val.description, data, val.price));
+    });
+    
+    $("#body-page").append('<a id="acn-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
+    
+};
+

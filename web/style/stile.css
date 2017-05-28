@@ -283,15 +283,18 @@ html,body, div[data-role ="page"]
 
 /*  LISTA   */
 
-#btn-back-lista
+/*se ci sono meno di n elementi in lista,
+il pulsante annulla rimane fisso*/
+#btn-back-lista-fix
 {
     position: fixed;
     bottom: 20px;
     float:right;
     left:30px;
 }
-
-#btn-backplus-lista
+/*se ci sono piu di n elementi in lista,
+il pulsante annulla non rimane fisso*/
+#btn-back-lista
 {
     margin-top: 40px; 
     float: left;
