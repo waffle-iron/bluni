@@ -50,14 +50,7 @@ Bl.account.renderAccount = (function(user)  //prende informazioni
 
         success: function(userConf)
         {
-            if($.isEmptyObject(userConf))
-            {
-                alert("[ERRORE] dati utente esterno nulli");
-            }
-            else
-            {
-                Bl.account.appendHtml(userConf);
-            }
+            Bl.account.appendHtml(userConf);
         },
         error: function()
         {
@@ -70,6 +63,11 @@ Bl.account.renderAccount = (function(user)  //prende informazioni
 
 Bl.account.appendHtml = function (user)
 {
+    if(user.length === undefined)
+    {
+        user[0] = Bl.user.getConfig();
+    }
+    
     var myAccount = false;
     if(Bl.configuration.isMyAccount(user[0].username))
     {
@@ -91,21 +89,27 @@ Bl.account.appendHtml = function (user)
     $("#body-page").append('<p><span class="acn-bold-text">Numero di telefono: </span>'+user[0].phone_number+'</p>');
     $('#body-page').append('<hr>');
     
-    if(myAccount)
+    if(user.length !== undefined)
     {
-        $('#body-page').append('<h3>I miei annunci</h3>');
+        if(myAccount)
+        {
+            $('#body-page').append('<h3>I miei annunci</h3>');
+        }
+        else
+        {
+            $('#body-page').append('<h3>I suoi annunci</h3>');
+        }
+        
+        jQuery.each(user,function(key,val)
+        {
+            $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
+                                    val.title, val.description, val.date, val.price));
+        });
     }
     else
     {
-        $('#body-page').append('<h3>I suoi annunci</h3>');
+        $('#body-page').append('<p style="text-align:center; color:grey;">Nessun annuncio</p>');
     }
-    
-    
-    jQuery.each(user,function(key,val)
-    {
-        $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
-                                val.title, val.description, val.date, val.price));
-    });
     
     $("#body-page").append('<a id="acn-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
     
