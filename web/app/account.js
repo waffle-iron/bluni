@@ -7,7 +7,7 @@ Bl.account.render = function()
 {
     $("#body-page").empty();  
     
-    Bl.account.renderAccount(Bl.user.getConfig());
+    Bl.account.renderAccount(Bl.user.getUsername());
     
     $('#acn-btn-back').click(function()
     {
@@ -87,7 +87,7 @@ Bl.account.appendHtml = function (user)
     
     jQuery.each(user,function(key,val)
     {
-        var data = Bl.account.convertData(val.date);
+        var data = BlApp.convertData(val.date);
         
         $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
                                 val.title, val.description, data, val.price));
@@ -95,10 +95,4 @@ Bl.account.appendHtml = function (user)
     
     $("#body-page").append('<a id="acn-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
     
-};
-
-Bl.account.convertData = function(data)
-{
-    var date = new Date(data);
-    return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
 };

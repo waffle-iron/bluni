@@ -37,3 +37,8 @@ BlApp.formGroup.html = function(label, id_input, type_input, placeholder_input)
     return html;
 };
 
+BlApp.convertData = function(data)
+{
+    var date = new Date(data);
+    return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+};
