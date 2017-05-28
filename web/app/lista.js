@@ -65,9 +65,3 @@ Bl.lista.renderExternalAccount = function (username)
         Bl.lista.render(Bl.lista.books, Bl.lista.title);
     });
 };
-
-Bl.lista.convertData = function(data)
-{
-    var date = new Date(data);
-    return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
-};
