@@ -17,13 +17,17 @@ Bl.account.render = function()
     
     $('.el-content').click(function()
     {
-        var title = $(this).find('.el-title').text();
-        BlApp.popupDialog("Vuoi eliminare il libro di "+title+" dagli annunci?");
+        var refBook = {};
+        refBook['user'] = Bl.user.getUsername();
+        refBook['title'] = $(this).find('.el-title').text();
+        refBook['date'] = $(this).find('.el-date').attr('val');
+        
+        BlApp.popupDialog("Vuoi eliminare il libro di "+refBook['title']+" dagli annunci?");
         $('#bl-popup').popup('open');
         
         $('#btn-confirm-popup').click(function()
         {
-            console.log("eliminato");
+            Bl.account.deleteBook(refBook);
             $('#bl-popup').popup('close');
         });
     }); 
@@ -99,12 +103,43 @@ Bl.account.appendHtml = function (user)
     
     jQuery.each(user,function(key,val)
     {
-        var data = BlApp.convertData(val.date);
-        
         $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
-                                val.title, val.description, data, val.price));
+                                val.title, val.description, val.date, val.price));
     });
     
     $("#body-page").append('<a id="acn-btn-back" data-inline="true" class="btn btn-default">Indietro</a>');
     
+};
+
+Bl.account.deleteBook = function(refBook)
+{
+    var pathParts = window.location.href.split("/");
+    var root=  pathParts[0] + "//" + pathParts[2] + "/" + pathParts[3];
+    
+    $.ajax({
+        type: "POST",
+        url: root+"/src/main/connect/deleteBook.php",
+        data: {param: JSON.stringify(refBook)},
+        async:false,
+        dataType: "text",
+
+        success: function(msg)
+        {
+            if(msg === "1")
+            {;
+                Bl.account.render();
+            }
+            else
+            {
+                $('#bl-popup').html(msg);
+                $('#bl-popup').popup('open');
+            }
+        },
+        error: function()
+        {
+            $('#bl-popup').html("[ERRORE] connessione");
+            $('#bl-popup').popup('open');
+            return false;
+        }
+    });
 };

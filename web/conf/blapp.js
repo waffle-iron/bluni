@@ -17,12 +17,14 @@ BlApp.element = {};
 
 BlApp.element.html = (function(user,facolta, titolo,descrizione,data,prezzo)
 {
+    var date = BlApp.convertData(data);
+    
     var tab =  '\<div class = "el-content">\
                <table class = "el-table"> \n\
                <tr><td class = "username">'+user+'</td><td class = "faculty">'+facolta+'</td></tr> \n\
                <tr><td colspan=2 class = "el-title">'+titolo+'</td></tr> \n\
                <tr><td colspan=2 class = "el-description">'+descrizione+'</td></tr> \n\
-               <tr><td class = "el-date">'+data+'</td><td class = "el-price">'+prezzo+' €</td></tr> \n\
+               <tr><td class = "el-date" val="'+data+'">'+date+'</td><td class = "el-price">'+prezzo+' €</td></tr> \n\
                </table>\n\
                </div>';
     return tab;

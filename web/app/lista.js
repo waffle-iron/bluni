@@ -40,10 +40,8 @@ Bl.lista.appendHtml = (function(list, titolo)
     
     jQuery.each(list,function(key,val)
     {
-        var data = BlApp.convertData(val.date);
-        
         $("#body-page").append(BlApp.element.html(val.username, val.faculty, 
-                                val.title, val.description, data, val.price));
+                                val.title, val.description, val.date, val.price));
     });
     
     if(list.length<2)
