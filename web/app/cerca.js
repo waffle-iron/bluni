@@ -78,7 +78,6 @@ Bl.cerca.search =(function(param)
         success: function(msg)
         {
             if($.isEmptyObject(msg))
-
             {
                 $('#bl-popup').html("nessun risultato trovato");
                 $('#bl-popup').popup('open');
