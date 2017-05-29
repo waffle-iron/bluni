@@ -75,6 +75,12 @@ html,body, div[data-role ="page"]
 {
     height: 100% !important;
 }
+
+.btn, .btn-default
+{
+    border-color: #00ABC7;
+    color: #00ABC7 !important;
+}
 /*end GENERAL PAGE*/
 
 
@@ -114,8 +120,6 @@ html,body, div[data-role ="page"]
 {
     padding: 20px;
     width: 100%;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 
 #btn-vendi
@@ -123,8 +127,6 @@ html,body, div[data-role ="page"]
     margin-top: 50px;
     padding: 20px;
     width: 100%;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 /*  END MAIN PAGE  */
 
@@ -162,23 +164,17 @@ html,body, div[data-role ="page"]
     margin-top: 30px;
     width:100%;
     color: #00ABC7;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 
 #signin
 {
     float:right;
     margin-top: 45px;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 
 #btn-back
 {
     margin-top: 40px;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 
 
@@ -205,15 +201,11 @@ html,body, div[data-role ="page"]
 {
     margin-top: 20px;
     float:right;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 #signin-back
 {
     float: left;
     margin-top: 20px;
-    border-color: #00ABC7;
-    color: #00ABC7;
 }
 /*  FINE SIGNIN */
 
@@ -332,11 +324,10 @@ il pulsante annulla non rimane fisso*/
 .el-content
 {
     margin-top: 20px;
-    padding: 5px;
+    padding: 10px;
     width: 100%;
-    border: 2px solid rgb(221,221,221);
-    border-radius: 5px !important;
-    box-shadow: 5px 5px 19px #333333;
+    border: 0.5px solid rgb(221,221,221);
+    box-shadow: 2px 2px 7px 0px #333333;
     
 }
 
@@ -347,35 +338,45 @@ il pulsante annulla non rimane fisso*/
 
 .faculty
 {
+    padding-right: 5px;
     text-align: right;
+    /*background-color: rgba(0, 172, 199, 0.02);*/
+    background-image:linear-gradient(to right, rgba(0, 172, 199, 0.08) 0%, rgba(0, 172, 199, 0.05) 100%);
 }
 
 .username
 {
+    padding: 2px;
     text-align: left;
+   /* background-color: rgba(0, 172, 199, 0.1);*/
+   
+    background-image:linear-gradient(to right, rgba(0, 172, 199, 0.1) 0%, rgba(0, 172, 199, 0.08) 100%);
 }
 
 .el-title
 {
+    padding-top: 10px;
     text-align: center; 
     font-size: large;
     font-weight: bolder;
 }
 
 .el-description
-{
+{    
+    padding-top: 10px;
     text-align: left;
     color: #bdbdbd; 
 }
 
 .el-date
 {
+    padding-top: 13px;
     text-align: left;
-      
 }
 
 .el-price
 {
+    padding-top: 13px;
     text-align: right; 
     color: green;
 }
