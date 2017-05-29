@@ -9,13 +9,13 @@ if(isset($_GET['param']))
     $sql=" SELECT *
            FROM unibg_books 
            WHERE 
-           title LIKE '%$obj->title%'
-           ORDER BY '$obj->date' ASC";
+           title LIKE '%$obj->title%'";
     
     if($obj->faculty != "Tutte le facoltà")
     { 
-        $sql = $sql."AND faculty = '$obj->faculty'";
+        $sql = $sql." AND faculty = '$obj->faculty'";
     }
+    $sql = $sql." ORDER BY '$obj->date' ASC";
     
     $res = mysqli_query($conn, $sql);
     
