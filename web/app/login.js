@@ -14,6 +14,28 @@ Bl.login.render = (function()
         var user = $('#input-username').val();
         var psw = $('#input-password').val();
         
+        if ($.isEmptyObject(user) || $.isEmptyObject(psw))
+        {
+            if ($.isEmptyObject(user) && $.isEmptyObject(psw))
+            {
+                $('#bl-popup').html("Inserire le credenziali");
+                $('#bl-popup').popup('open');
+                return false;
+            }
+            if ($.isEmptyObject(user))
+            {
+                $('#bl-popup').html("Inserire lo user");
+                $('#bl-popup').popup('open');
+                return false;
+            }
+            else
+            {
+                $('#bl-popup').html("Inserire la password");
+                $('#bl-popup').popup('open');
+                return false;
+            }
+        }
+        
         Bl.login.start(user,psw);	
     });
 
